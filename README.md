@@ -11,3 +11,4 @@ Zhiyuan Ma ([zma24](mailto:zma24@ncsu.edu))
 
 ## Design
 
+[DESIGN.md](DESIGN.md)

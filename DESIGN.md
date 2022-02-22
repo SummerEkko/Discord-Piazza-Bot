@@ -22,5 +22,56 @@ By adding these weekly announcements, the bot will provide a convenient way for 
 
 Grow your KPI with our API.
 
+## Use Case
+
+Disclaimer: All use cases are based on the assumption that students must participate in Piazza in public. In other words, if students ask or answer questions anonymously, related performance data will not be captured. Furthermore, anonymous post will be ignored and not evaluated in performance report.
+
+Use Case 1: Customize weekly performance summary sent in the group-sharing Discord channel  
+1 Preconditions
+   Instructor must have created a course in Piazza. Plus, instructor must have a Discord account and set up a class channel.
+2 Main Flow
+   Instructor will log in the settings portal with credentials by admin [S1]. Instructor will customize how to evaluate student performance on matrix [S2]. Bot sends a performance summary weekly in the group-sharing Discord channel [S3].
+3 Subflows
+  [S1] Instructor login to a settings portal with provided credentials @username and @password.
+  [S2] Instructor will weigh “Questions asked”, “Answers to questions”, “Most views”, “Endorsement by other users” each on the scale from 1 to 10. 
+  [S3] Bot calculates performance score of each student based on customized matrix in [S2]. Top 3 performers will be announced along with their statistics in the group-sharing Discord Channel. 
+4 Alternative Flows
+  [E1] Instructor does not specify evaluation matrix. By default, weighing on “Questions asked”, “Answers to questions”, “Most views”,  and “Endorsement by other users” is 1:1:1:1.
+
+ Use Case 2: Send student’s temporary password to settings portal upon joining the course Discord channel
+1 Preconditions
+   Student must register and enroll in a course in Piazza. Plus, student must have a Discord account.
+2 Main Flow
+   Student will join the course Discord channel[S1]. Bot sends a welcome message with login credential to settings portal[S2].
+3 Subflows
+  [S1] Student joins the course Discord Channel.
+  [S2] Bot will generate 8 random characters password as user temporary password. Bot sends a welcome message with a settings portal link and a temporary password. 
+4 Alternative Flows
+  [E1] N/A
+
+Use Case 3: Subscribe to receive incentive message (Points earned/Badge up to date message) in the private Discord channel
+1 Preconditions
+   Students must register and enroll in a course in Piazza. Plus, students must have a Discord account and join the class channel.
+2 Main Flow
+   Student will log in to the settings portal with credentials provided by instructor [S1]. Student will select subscription frequency to receive incentive messages [S2]. Bot sends incentive messages in favor of user selection in the private Discord channel [S3].
+3 Subflows
+  [S1] Student login to a settings portal with provided credentials @username and @password.
+  [S2] In the settings portal, Student make a selection on how frequently he/she would like to receive incentive messages. Options are daily, weekly and disabled.
+  [S3] Bot will send incentives messages based on the user's setting in the Discord channel.
+4 Alternative Flows
+  [E1] Student does not log in and change his/her settings. Daily incentive messages will be received by default. 
+
+Use Case 4: Customize midterm/final performance summary Excel file
+1 Preconditions
+   Instructor must have created a course in Piazza. Plus, student must enroll in the same course in Piazza.
+2 Main Flow
+   Instructor will log in the settings portal with credentials by admin [S1]. Instructor will customize how to evaluate student performance on matrix [S2]. Bot generates midterm/final performance summary in Excel file format [S4].
+3 Subflows
+  [S1] Instructor login to a settings portal with provided credentials @username and @password.
+  [S2] Instructor will weigh “Questions asked”, “Answers to questions”, “Most views”, “Endorsement by other users” each on the scale from 1 to 10 [S3]. Bot calculates the performance score of each student based on a customized matrix in [S2]. All student's performance statistics will be recorded in an Excel spreadsheet.
+4 Alternative Flows
+  [E1] Instructor user does not specify evaluation matrix. By default, weighing on “Questions asked”, “Answers to questions”, “Most views”,  and “Endorsement by other users” is 1:1:1:1. Also, one midterm and one final performance summary will be generated as an Excel file by default. 
+
+
 ## Reference: 
 [Piazza Reference](https://www.businesswire.com/news/home/20210126005439/en/Leading-Colleges-and-Universities-Across-the-U.S.-Select-the-Piazza-QA-Platform-for-Enhanced-Virtual-Learning-Experiences#:~:text=Piazza%20has%20been%20used%20by,license%2C%20visit%20our%20license%20page)

@@ -83,7 +83,8 @@ Use Case 4: Customize midterm/final performance summary Excel file
 ![Moodle Pic](https://github.ncsu.edu/csc510-s2022/CSC510-10/blob/main/Design%20sketches%20Image/wf3.png)
 
 - Storyboard that illustrates the primary task that a user undergoes with bot.  
-
+&ensp; 1. storyboard for the usercase1:   
+![Moodle Pic](https://github.ncsu.edu/csc510-s2022/CSC510-10/blob/main/Design%20sketches%20Image/sb1.jpg)
 
 ## Reference: 
 [Piazza Reference](https://www.businesswire.com/news/home/20210126005439/en/Leading-Colleges-and-Universities-Across-the-U.S.-Select-the-Piazza-QA-Platform-for-Enhanced-Virtual-Learning-Experiences#:~:text=Piazza%20has%20been%20used%20by,license%2C%20visit%20our%20license%20page)

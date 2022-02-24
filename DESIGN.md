@@ -75,8 +75,12 @@ Use Case 4: Customize midterm/final performance summary Excel file
  
 ## Design Sketches  
 - Wireframe mockuping of our bot in action.  
-&ensp; 1. wireframe for the usercase1:
-![Moodle Pic](https://github.ncsu.edu/csc510-s2022/CSC510-10/blob/main/Design%20sketches%20Image/wf1.png) 
+&ensp; 1. wireframe for the usercase1:  
+![Moodle Pic](https://github.ncsu.edu/csc510-s2022/CSC510-10/blob/main/Design%20sketches%20Image/wf1.png)   
+&ensp; 2. wireframe for the usercase2:  
+![Moodle Pic](https://github.ncsu.edu/csc510-s2022/CSC510-10/blob/main/Design%20sketches%20Image/wf2.png)  
+&ensp; 3. wireframe for the usercase3:
+![Moodle Pic](https://github.ncsu.edu/csc510-s2022/CSC510-10/blob/main/Design%20sketches%20Image/wf3.png)
 
 - Storyboard that illustrates the primary task that a user undergoes with bot.  
 

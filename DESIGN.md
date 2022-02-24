@@ -70,7 +70,11 @@ Use Case 4: Customize midterm/final performance summary Excel file
   [S1] Instructor login to a settings portal with provided credentials @username and @password.
   [S2] Instructor will weigh “Questions asked”, “Answers to questions”, “Most views”, “Endorsement by other users” each on the scale from 1 to 10 [S3]. Bot calculates the performance score of each student based on a customized matrix in [S2]. All student's performance statistics will be recorded in an Excel spreadsheet.
 4 Alternative Flows
-  [E1] Instructor user does not specify evaluation matrix. By default, weighing on “Questions asked”, “Answers to questions”, “Most views”,  and “Endorsement by other users” is 1:1:1:1. Also, one midterm and one final performance summary will be generated as an Excel file by default. 
+  [E1] Instructor user does not specify evaluation matrix. By default, weighing on “Questions asked”, “Answers to questions”, “Most views”,  and “Endorsement by other users” is 1:1:1:1. Also, one midterm and one final performance summary will be generated as an Excel file by default.  
+  
+ 
+## Design Sketches  
+
 
 
 ## Reference: 

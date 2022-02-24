@@ -74,8 +74,10 @@ Use Case 4: Customize midterm/final performance summary Excel file
   
  
 ## Design Sketches  
-- Create a wireframe mockup of your bot in action.  
-- Create a storyboard that illustrates the primary task that a user undergoes with bot.
+- Wireframe mockuping of our bot in action.  
+1 wireframe for the usercase1:
+
+- Storyboard that illustrates the primary task that a user undergoes with bot.  
 
 
 ## Reference: 

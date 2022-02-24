@@ -85,6 +85,7 @@ Use Case 4: Customize midterm/final performance summary Excel file
 - Storyboard that illustrates the primary task that a user undergoes with bot.  
 &ensp; 1. storyboard for the usercase1:   
 ![Moodle Pic](https://github.ncsu.edu/csc510-s2022/CSC510-10/blob/main/Design%20sketches%20Image/sb1.jpg)
+<div align=center><img width="150" height="150" src="https://github.ncsu.edu/csc510-s2022/CSC510-10/blob/main/Design%20sketches%20Image/sb1.jpg"/></div>
 
 
 ## Reference: 

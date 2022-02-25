@@ -123,6 +123,14 @@ Disclaimer: All use cases are based on the assumption that students must partici
 &ensp; 3. storyboard for the usercase3:   
 <div align=center><img width="700" height="500" src="https://github.ncsu.edu/csc510-s2022/CSC510-10/blob/main/Design%20sketches%20Image/sb3.jpg"/></div>
 
+## Architecture Design
+![](Design%20sketches%20Image/Architecture.png)
+Our bot will have a data-centered architecture, mainly including four parts: a data collector program, a database, a user configuration program and a stats sender program. Our bot and users will interact through a Discord server, and will process commands from the server with the Discord API.  At the very beginning, the instructor needs to configure the initial settings including telling our bot the course link, user email, password and customization. The bot itself will use the observer design pattern to track time, and then notify the data collector at midnight every day to scrape data from Piazza. Data will be stored in a database, and we will only store data from the last seven days. We will have a dataset for statistics regarding questions asked and answered, views, and endorsements, and another for points earned and current levels of students. Our bot will check the updating data to see if a student earns enough points to level up. Then our bot will send a level up message if so. When returning data in activity summaries, the server will pull data from the database to get statistics to return. Then the bot will post the statistics back into the Discord server into the appropriate server channel.
+
+Some constraints in building software are that users should not be able to make any changes to the database. They can only interact with the bot by making requests for activity summary statistics. Furthermore, the bot cannot send data between users. Users will only be able to see class statistics and their own statistics. Also, to avoid overwhelming computational resources and performing redundant data retrieval operations (i.e. it is unlikely that the content on a Piazza forum will change drastically every minute), the bot will not provide true real-time statistics and reward level-ups, as it will only retrieve data from Piazza once a day. 
+
+[Design Doc](https://docs.google.com/document/d/1i5qiMpVT5LUZuG3_1IN2-Zul393FGb_QCJeCWJzME9g)
+
 
 ## Reference: 
-[Piazza Reference](https://www.businesswire.com/news/home/20210126005439/en/Leading-Colleges-and-Universities-Across-the-U.S.-Select-the-Piazza-QA-Platform-for-Enhanced-Virtual-Learning-Experiences#:~:text=Piazza%20has%20been%20used%20by,license%2C%20visit%20our%20license%20page)
+- [Piazza Reference](https://www.businesswire.com/news/home/20210126005439/en/Leading-Colleges-and-Universities-Across-the-U.S.-Select-the-Piazza-QA-Platform-for-Enhanced-Virtual-Learning-Experiences#:~:text=Piazza%20has%20been%20used%20by,license%2C%20visit%20our%20license%20page)

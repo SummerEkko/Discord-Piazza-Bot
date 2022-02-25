@@ -109,7 +109,7 @@ Disclaimer: All use cases are based on the assumption that students must partici
 &ensp; 1. wireframe for the usercase1:  
 ![Moodle Pic](https://github.ncsu.edu/csc510-s2022/CSC510-10/blob/main/Design%20sketches%20Image/version%203.0/wf1.png)   
 &ensp; 2. wireframe for the usercase2:  
-![Moodle Pic](https://github.ncsu.edu/csc510-s2022/CSC510-10/blob/main/Design%20sketches%20Image/version%203.0/wf2.png)  
+<div align=center><img width="700" height="500" src="https://github.ncsu.edu/csc510-s2022/CSC510-10/blob/main/Design%20sketches%20Image/version%203.0/wf2.png"/></div> 
 &ensp; 3. wireframe for the usercase3:
 <div align=center><img width="700" height="500" src="https://github.ncsu.edu/csc510-s2022/CSC510-10/blob/main/Design%20sketches%20Image/version%203.0/wf3.png"/></div>
 &ensp; 4. wireframe for the usercase4:
@@ -117,7 +117,7 @@ Disclaimer: All use cases are based on the assumption that students must partici
 
 - Storyboard that illustrates the primary task that a user undergoes with bot.  
 &ensp; 1. storyboard for the usercase1:   
-<div align=center><img width="700" height="500" src="https://github.ncsu.edu/csc510-s2022/CSC510-10/blob/main/Design%20sketches%20Image/sb1.jpg"/></div>  
+<div align=center><img width="800" height="500" src="https://github.ncsu.edu/csc510-s2022/CSC510-10/blob/main/Design%20sketches%20Image/sb1.jpg"/></div>  
 &ensp; 2. storyboard for the usercase2:   
 <div align=center><img width="700" height="500" src="https://github.ncsu.edu/csc510-s2022/CSC510-10/blob/main/Design%20sketches%20Image/sb2.jpg"/></div>  
 &ensp; 3. storyboard for the usercase3:   

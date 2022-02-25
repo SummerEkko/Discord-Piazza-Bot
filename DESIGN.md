@@ -117,13 +117,13 @@ Disclaimer: All use cases are based on the assumption that students must partici
 
 - Storyboard that illustrates the primary task that a user undergoes with bot.  
 &ensp; 1. storyboard for the usercase1:   
-<div align=center><img width="800" height="500" src="https://github.ncsu.edu/csc510-s2022/CSC510-10/blob/main/Design%20sketches%20Image/version%204.0/sb1.jpg"/></div>  
+<div align=center><img width="800" height="500" src="https://github.ncsu.edu/csc510-s2022/CSC510-10/blob/main/Design%20sketches%20Image/version%205.0/sb1.jpg"/></div>  
 &ensp; 2. storyboard for the usercase2:   
-<div align=center><img width="700" height="500" src="https://github.ncsu.edu/csc510-s2022/CSC510-10/blob/main/Design%20sketches%20Image/version%204.0/sb2.jpg"/></div>  
+<div align=center><img width="700" height="500" src="https://github.ncsu.edu/csc510-s2022/CSC510-10/blob/main/Design%20sketches%20Image/version%205.0/sb2.jpg"/></div>  
 &ensp; 3. storyboard for the usercase3:   
-<div align=center><img width="700" height="500" src="https://github.ncsu.edu/csc510-s2022/CSC510-10/blob/main/Design%20sketches%20Image/version%204.0/sb3.jpg"/></div>  
+<div align=center><img width="700" height="500" src="https://github.ncsu.edu/csc510-s2022/CSC510-10/blob/main/Design%20sketches%20Image/version%205.0/sb3.jpg"/></div>  
 &ensp; 3. storyboard for the usercase4:   
-<div align=center><img width="700" height="500" src="https://github.ncsu.edu/csc510-s2022/CSC510-10/blob/main/Design%20sketches%20Image/version%204.0/sb4.jpg"/></div>  
+<div align=center><img width="700" height="500" src="https://github.ncsu.edu/csc510-s2022/CSC510-10/blob/main/Design%20sketches%20Image/version%205.0/sb4.jpg"/></div>  
 
 ## Architecture Design
 

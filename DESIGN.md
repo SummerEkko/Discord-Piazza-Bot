@@ -26,47 +26,46 @@ Use Case 1: Customize weekly performance summary sent in the group-sharing Disco
 1 Preconditions
    Instructor must have created a course in Piazza. Plus, instructor must have a Discord account and set up a class channel.
 2 Main Flow
-   Instructor will log in the settings portal with credentials by admin [S1]. Instructor will customize how to evaluate student performance on matrix [S2]. Bot sends a performance summary weekly in the group-sharing Discord channel [S3].
+   Instructor will customize how to evaluate student performance with the Piazza performance matrix [S1]. Bot sends a performance summary weekly in the group-sharing Discord channel based on the defined matrix [S2].
 3 Subflows
-  [S1] Instructor login to a settings portal with provided credentials @username and @password.
-  [S2] Instructor will weigh “Questions asked”, “Answers to questions”, “Most views”, “Endorsement by other users” each on the scale from 1 to 10. 
-  [S3] Bot calculates performance score of each student based on customized matrix in [S2]. Top 3 performers will be announced along with their statistics in the group-sharing Discord Channel. 
+  [S1] In the Discord Configuration channel, instructor will issue commands and weigh “Questions asked”, “Answers to questions”, “Most views”, “Endorsement by other users” each on a scale from 1 to 10. 
+  [S2] Bot calculates the performance score of each student based on the defined performance matrix in [S1]. Top 3 performers will be announced along with their statistics in the group-sharing Discord Channel. 
 4 Alternative Flows
   [E1] Instructor does not specify evaluation matrix. By default, weighing on “Questions asked”, “Answers to questions”, “Most views”,  and “Endorsement by other users” is 1:1:1:1.
 
- Use Case 2: Send student’s temporary password to settings portal upon joining the course Discord channel
+Use Case 2: Customize ranking hierarchy (level roles/unique emoji) to students based on overall performance 
 1 Preconditions
-   Student must register and enroll in a course in Piazza. Plus, student must have a Discord account.
+   Instructor must have created a course in Piazza. Plus, instructor must have a Discord account and set up a class channel.
 2 Main Flow
-   Student will join the course Discord channel[S1]. Bot sends a welcome message with login credential to settings portal[S2].
+   Instructor will customize ranking hierarchy in Discord server [S1].
 3 Subflows
-  [S1] Student joins the course Discord Channel.
-  [S2] Bot will generate 8 random characters password as user temporary password. Bot sends a welcome message with a settings portal link and a temporary password. 
+  [S1] In the Discord server, the instructor will customize the number of points per level and assign emojis to levels for students’ reward with commands.
 4 Alternative Flows
   [E1] N/A
 
-Use Case 3: Subscribe to receive incentive message (Points earned/Badge up to date message) in the private Discord channel
+Use Case 3: Subscribe to receive incentive message (up-to-date points earned message) in the private Discord channel
 1 Preconditions
    Students must register and enroll in a course in Piazza. Plus, students must have a Discord account and join the class channel.
 2 Main Flow
-   Student will log in to the settings portal with credentials provided by instructor [S1]. Student will select subscription frequency to receive incentive messages [S2]. Bot sends incentive messages in favor of user selection in the private Discord channel [S3].
+   Student will associate Piazza account name with a Private Discord channel [S1]. Student will choose a subscription frequency to receive incentive messages [S2]. Bot sends incentive messages in favor of user selection in the private Discord channel [S3].
 3 Subflows
-  [S1] Student login to a settings portal with provided credentials @username and @password.
-  [S2] In the settings portal, Student make a selection on how frequently he/she would like to receive incentive messages. Options are daily, weekly and disabled.
-  [S3] Bot will send incentives messages based on the user's setting in the Discord channel.
+  [S1] In Discord private channel, student will associate Piazza account by simple commands. 
+ [S2] Student sends a command to acknowledge how frequently he/she would like to receive incentive messages to the bot. Options are daily, weekly and disabled.
+  [S3] Bot will send incentives messages based on the user's setting in the private Discord channel.
 4 Alternative Flows
-  [E1] Student does not log in and change his/her settings. Daily incentive messages will be received by default. 
+  [E1] Student does not configure subscription frequency. Daily incentive messages will be received by default. 
 
-Use Case 4: Customize midterm/final performance summary Excel file
+Use Case 4: Customize midterm/final performance summary CSV file as academic record
 1 Preconditions
    Instructor must have created a course in Piazza. Plus, student must enroll in the same course in Piazza.
 2 Main Flow
-   Instructor will log in the settings portal with credentials by admin [S1]. Instructor will customize how to evaluate student performance on matrix [S2]. Bot generates midterm/final performance summary in Excel file format [S4].
+   Instructor will select auto-downloading performance records for course milestones, such as midterm or final [S1]. Bot generates midterm/final performance summary in CSV file format and saves in docker container [S2].
 3 Subflows
-  [S1] Instructor login to a settings portal with provided credentials @username and @password.
-  [S2] Instructor will weigh “Questions asked”, “Answers to questions”, “Most views”, “Endorsement by other users” each on the scale from 1 to 10 [S3]. Bot calculates the performance score of each student based on a customized matrix in [S2]. All student's performance statistics will be recorded in an Excel spreadsheet.
+  [S1] In the Discord Configuration channel, instructor will issue commands to configure certain dates to auto-download performance records.
+  [S2] According to instructor’s input, bot will generate performance records and save them in the Docker container.
 4 Alternative Flows
-  [E1] Instructor user does not specify evaluation matrix. By default, weighing on “Questions asked”, “Answers to questions”, “Most views”,  and “Endorsement by other users” is 1:1:1:1. Also, one midterm and one final performance summary will be generated as an Excel file by default.  
+  [E1] If the instructor user does not specify the need of keeping academic performance records. By default, only the final performance summary will be generated and save in the docker.
+
   
  
 ## Design Sketches  

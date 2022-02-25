@@ -22,7 +22,8 @@ Grow your KPI with our API.
 
 Disclaimer: All use cases are based on the assumption that students must participate in Piazza in public. In other words, if students ask or answer questions anonymously, related performance data will not be captured. Furthermore, anonymous post will be ignored and not evaluated in performance report.
 
-Use Case 1: Customize weekly performance summary sent in the group-sharing Discord channel  
+# Use Case 1: Customize weekly performance summary sent in the group-sharing Discord channel
+
 1 Preconditions
    Instructor must have created a course in Piazza. Plus, instructor must have a Discord account and set up a class channel.
 2 Main Flow
@@ -33,7 +34,8 @@ Use Case 1: Customize weekly performance summary sent in the group-sharing Disco
 4 Alternative Flows
   [E1] Instructor does not specify evaluation matrix. By default, weighing on “Questions asked”, “Answers to questions”, “Most views”,  and “Endorsement by other users” is 1:1:1:1.
 
-Use Case 2: Customize ranking hierarchy (level roles/unique emoji) to students based on overall performance 
+# Use Case 2: Customize ranking hierarchy (level roles/unique emoji) to students based on overall performance
+
 1 Preconditions
    Instructor must have created a course in Piazza. Plus, instructor must have a Discord account and set up a class channel.
 2 Main Flow
@@ -43,7 +45,8 @@ Use Case 2: Customize ranking hierarchy (level roles/unique emoji) to students b
 4 Alternative Flows
   [E1] N/A
 
-Use Case 3: Subscribe to receive incentive message (up-to-date points earned message) in the private Discord channel
+# Use Case 3: Subscribe to receive incentive message (up-to-date points earned message) in the private Discord channel
+
 1 Preconditions
    Students must register and enroll in a course in Piazza. Plus, students must have a Discord account and join the class channel.
 2 Main Flow
@@ -55,7 +58,8 @@ Use Case 3: Subscribe to receive incentive message (up-to-date points earned mes
 4 Alternative Flows
   [E1] Student does not configure subscription frequency. Daily incentive messages will be received by default. 
 
-Use Case 4: Customize midterm/final performance summary CSV file as academic record
+# Use Case 4: Customize midterm/final performance summary CSV file as academic record
+
 1 Preconditions
    Instructor must have created a course in Piazza. Plus, student must enroll in the same course in Piazza.
 2 Main Flow

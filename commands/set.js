@@ -1,6 +1,8 @@
 const {SlashCommandBuilder} = require('@discordjs/builders');
 
 module.exports = {
+    // @todo: instructor setting's parameter?
+    // @todo: where to store?
     data: new SlashCommandBuilder()
         .setName('set')
         .setDescription('Set parameters for points')

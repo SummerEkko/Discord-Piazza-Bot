@@ -13,6 +13,9 @@ Zhiyuan Ma ([zma24](mailto:zma24@ncsu.edu))
 
 [DESIGN.md](DESIGN.md)
 
+## Discord
+https://discord.gg/PZRgpxjv
+
 ## Configuration
 Put Discord **clientId** and **token** in config.json
 https://discord.com/developers/applications

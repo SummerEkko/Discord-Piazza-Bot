@@ -76,6 +76,7 @@ module.exports = {
         const p2 = interaction.options.getInteger('p2');
         const p3 = interaction.options.getInteger('p3');
         const p4 = interaction.options.getInteger('p4');
+        // todo: store points parameter in database
         await interaction.reply(
             `Parameters:\n` +
             `Questions asked: ${p1}\n` +

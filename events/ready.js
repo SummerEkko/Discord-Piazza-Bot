@@ -13,7 +13,7 @@ module.exports = {
         let scheduledMessage = new cron.CronJob(
             '*/10 * * * * *',
             () => {
-                channel.send(`Cron Message\n${new Date()}`);
+                channel.send(`Here should be the performance summary\n`);
             },
             null,
             true,

@@ -19,6 +19,7 @@ https://discord.gg/PZRgpxjv
 ## Configuration
 Put Discord **clientId** and **token** in config.json
 https://discord.com/developers/applications
+
 To obtain config.json, please contact us directly.
 
 ## Run

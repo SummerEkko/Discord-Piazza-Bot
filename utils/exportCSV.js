@@ -23,6 +23,7 @@ function saveCSV() {
                         console.log(err);
                     } else {
                         console.log('File successfully written!');
+                        mongoose.disconnect().then(r => console.log("mongodb disconnected")).catch(err => console.log(err));
                     }
                 });
             }

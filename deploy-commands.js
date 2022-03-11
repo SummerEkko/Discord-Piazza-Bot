@@ -12,7 +12,8 @@ commandFiles.forEach(file => {
 });
 
 
-console.log(JSON.stringify(commands, null,2));
+// console.log(JSON.stringify(commands, null,2));
+console.log(commands.length);
 
 const rest = new REST({version: '9'}).setToken(token);
 

@@ -1,4 +1,5 @@
 const {SlashCommandBuilder} = require('@discordjs/builders');
+const executeBotPy = require('../utils/executeBotPy');
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -11,30 +12,50 @@ module.exports = {
         .addStringOption(option => option
             .setName('password')
             .setRequired(true)
-            .setDescription('Password')),
+            .setDescription('Password'))
+        .addStringOption(option => option
+            .setName('network-id')
+            .setRequired(true)
+            .setDescription('networkId')),
     async execute(interaction) {
         if (!interaction.guild) {
             await interaction.reply('This command can only be used in a server');
             return;
         }
         if (!interaction.member.permissions.has('ADMINISTRATOR' || 'MANAGE_GUILD')) {
-            await interaction.reply('You do not have permission to use this command');
+            await interaction.reply({
+                content: 'You do not have permission to use this command',
+                ephemeral: true
+            });
             return;
         }
         const email = interaction.options.getString('email');
         const password = interaction.options.getString('password');
-        let reply = '';
-        const regex = '/^(([^<>()\\[\\]\\\\.,;:\\s@"]+(\\.[^<>()\\[\\]\\\\.,;:\\s@"]+)*)|(".+"))@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))$/';
-        if (email.match(regex)) {
+        const networkId = interaction.options.getString('network-id');
+
+        const regex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        if (regex.test(email)) {
             //todo: check if already logged in
-            //todo: check if can login
             //todo: how and where to store
-            reply = `Logging in as ${email}`;
+            //todo: store guild id and channel id?
+            await executeBotPy.run(email, password, networkId)
+                .then((value) => {
+                    interaction.reply({
+                        content: value,
+                        ephemeral: true
+                    });
+                    return value;
+                }).then((value) => {
+                    if (value.trim() === 'Login success') {
+                        //todo: store email, password and networkId
+                        console.log('login success');
+                    }
+                });
         } else {
-            reply = 'Invalid email address';
+            await interaction.reply({
+                content: 'Invalid email address',
+                ephemeral: true
+            });
         }
-        await interaction.reply(
-            reply
-        );
     },
 }

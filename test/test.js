@@ -12,6 +12,7 @@ const user = require('../commands/user');
 const index = require('../index');
 const deployCommands = require('../deploy-commands');
 const executeBotPy = require('../utils/executeBotPy');
+const config = require('../config.json');
 
 class interaction {
     constructor() {
@@ -22,14 +23,14 @@ class interaction {
             }
         }
 
-        this.user = { tag: "abc", id: "def", username: "ABC" }
-        this.member = {
-            client: "123", displayName: "Name", guild: "012",
-            permissions: "ADMINISTRATOR", user: "User", roles: "Admin",
-            displayAvatarURL() {
-                return "google.com";
-            }
-        }
+        // this.user = { tag: "abc", id: "def", username: "ABC" }
+        // this.member = {
+        //     client: "123", displayName: "Name", guild: "012",
+        //     permissions: "ADMINISTRATOR", user: "User", roles: "Admin",
+        //     displayAvatarURL() {
+        //         return "google.com";
+        //     }
+        // }
     }
 
     async reply(options) {
@@ -37,20 +38,7 @@ class interaction {
     }
 }
 
-describe("WeatherBot Tests", function () {
-
-    // this.timeout(5000);
-    // it("login test", function() {
-    //     const i = new interaction();
-    //     login.execute(i);
-    //     assert.equal(i.c, "This command can only be used in a server");
-    // });
-
-    // it("csv test", async function() {
-    //     const i = new interaction();
-    //     let result = await downloadCSV.execute(i);
-    //     assert.equal(i.c.content, "CSV file generated.");
-    // });
+describe("Bot Tests", function () {
 
     it("should return the correct weight setting", function () {
         const i = new interaction();
@@ -63,12 +51,42 @@ describe("WeatherBot Tests", function () {
         assert.equal(i.c, weightSetting)
     })
 
-    it("should return the correct user info", function () {
-        const i = new interaction();
-        user.execute(i);
-        userStr = `Your tag: abc\nYour id: def\nYour username: ABC\nclient: "123"\n\ndisplayName: Name\n`
-            + `guild: 012\npermissions: "ADMINISTRATOR"\nuser: User\ndisplayAvatarURL(): google.com\n`;
-        assert.equal(i.c, userStr);
+    // it("should return the correct user info", function () {
+    //     const i = new interaction();
+    //     user.execute(i);
+    //     userStr = `Your tag: abc\nYour id: def\nYour username: ABC\nclient: "123"\n\ndisplayName: Name\n`
+    //         + `guild: 012\npermissions: "ADMINISTRATOR"\nuser: User\ndisplayAvatarURL(): google.com\n`;
+    //     assert.equal(i.c, userStr);
+    // })
+
+});
+
+describe("executeBotPy test", function () {
+
+    it("should log in failed", async function () {
+        await executeBotPy.run('test','test','test').then(
+            (result) => {
+                console.log(result)
+                expect(result).to.include('Login failed');
+            }
+        )
     })
 
+    it("should log in successfully", async function () {
+        await executeBotPy.run(config.piazzaUser, config.piazzaPass, config.piazzaNet).then(
+            (result) => {
+                console.log(result)
+                expect(result).to.include('Login success');
+            }
+        )
+    })
+
+    it("should show network id error", async function () {
+        await executeBotPy.run(config.piazzaUser, config.piazzaPass, 'fakenetid').then(
+            (result) => {
+                console.log(result)
+                expect(result).to.include('Bad network id');
+            }
+        )
+    })
 });

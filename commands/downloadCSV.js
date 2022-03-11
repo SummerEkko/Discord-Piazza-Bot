@@ -3,7 +3,7 @@ const exportCSV = require('../utils/exportCSV');
 
 module.exports = {
     data: new SlashCommandBuilder()
-        .setName('download_csv')
+        .setName('download-csv')
         .setDescription('Generates a CSV file of performance data.'),
     async execute(interaction) {
         exportCSV.saveCSV();

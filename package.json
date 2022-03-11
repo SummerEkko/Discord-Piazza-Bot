@@ -2,6 +2,7 @@
   "dependencies": {
     "@discordjs/builders": "^0.12.0",
     "@discordjs/rest": "^0.3.0",
+    "chai": "^4.3.6",
     "cron": "^1.8.2",
     "discord-api-types": "^0.28.0",
     "discord.js": "^13.6.0",
@@ -13,7 +14,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha --reporter spec",
     "start": "node index.js",
     "dev": "nodemon index.js"
   },
@@ -25,6 +26,8 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "c8": "^7.11.0",
+    "mocha": "^9.2.1",
     "nodemon": "^2.0.15"
   }
 }

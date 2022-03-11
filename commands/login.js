@@ -24,8 +24,7 @@ module.exports = {
         }
         if (!interaction.member.permissions.has('ADMINISTRATOR' || 'MANAGE_GUILD')) {
             await interaction.reply({
-                content: 'You do not have permission to use this command',
-                ephemeral: true
+                content: 'You do not have permission to use this command', ephemeral: true
             });
             return;
         }
@@ -41,8 +40,7 @@ module.exports = {
             await executeBotPy.run(email, password, networkId)
                 .then((value) => {
                     interaction.reply({
-                        content: value,
-                        ephemeral: true
+                        content: value, ephemeral: true
                     });
                     return value;
                 }).then((value) => {
@@ -53,8 +51,7 @@ module.exports = {
                 });
         } else {
             await interaction.reply({
-                content: 'Invalid email address',
-                ephemeral: true
+                content: 'Invalid email address', ephemeral: true
             });
         }
     },

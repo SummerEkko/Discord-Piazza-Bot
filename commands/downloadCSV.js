@@ -7,12 +7,7 @@ module.exports = {
         .setDescription('Generates a CSV file of performance data.'),
     async execute(interaction) {
         exportCSV.saveCSV();
-        await interaction.reply(
-            {
-                content: 'CSV file generated.',
-                files: [{attachment: './piazza.csv', name: 'piazza.csv'}],
-            }
-        );
+        await interaction.reply({content: 'CSV file generated.', files: [{attachment: './piazza.csv', name: 'piazza.csv'}],});
     },
 }
 

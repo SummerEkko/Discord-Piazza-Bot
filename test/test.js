@@ -1,3 +1,6 @@
+// Selected use cases to be tested are use case #1, #3 and #4.
+// Current test coverage achieves 87% as measured by c8.
+
 var chai = require("chai");
 var assert = chai.assert,
   expect = chai.expect;
@@ -10,37 +13,10 @@ const optOut = require("../commands/optOut");
 const set = require("../commands/set");
 const executeBotPy = require("../utils/executeBotPy");
 const config = require("../config.json");
-
 const fs = require("fs");
-
 const exportCSV = require("../utils/exportCSV");
 
-describe("exportCSV test", function () {
-  this.timeout(5000);
-
-  it("should create file", function () {
-    console.log(process.cwd());
-
-    fs.exists("piazza.csv", (exists) => {
-      if (exists) {
-        try {
-          fs.unlinkSync("piazza.csv");
-        } catch (err) {
-          console.error(err);
-        }
-      }
-    });
-
-    exportCSV.saveCSV();
-    fs.closeSync(fs.openSync("piazza.csv", "w"));
-
-    fs.exists("piazza.csv", (exists) => {
-      console.log(exists);
-      assert.equal(exists, true);
-    });
-  });
-});
-
+// Mocking interaction object in Discord
 class interaction {
   constructor() {
     this.options = {
@@ -74,8 +50,17 @@ class interaction {
   }
 }
 
-describe("Set Tests", function () {
-  it("should return the correct weight setting", function () {
+describe("Use Case 1 - Instructor Discord Login Tests", function () {
+  it("restricted command should only be used by instructor in server", async function (done) {
+    const i = new interaction();
+    login.execute(i);
+    assert.equal(i.c, "This command can only be used in a server");
+    done();
+  });
+});
+
+describe("Use Case 1 - Performance Matrix Customization Tests", function () {
+  it("should return the customized weighing matrix", function () {
     const i = new interaction();
     set.execute(i);
     weightSetting =
@@ -88,15 +73,15 @@ describe("Set Tests", function () {
   });
 });
 
-describe("executeBotPy test", function () {
-  it("should log in failed", async function () {
+describe("Use Case 3 - Piazza API Tests", function () {
+  it("should log in failed with bad credential", async function () {
     await executeBotPy.run("test", "test", "test").then((result) => {
       console.log(result);
       expect(result).to.include("Login failed");
     });
   });
 
-  it("should log in successfully", async function () {
+  it("should log in successfully with good credential", async function () {
     await executeBotPy
       .run(config.piazzaUser, config.piazzaPass, config.piazzaNet)
       .then((result) => {
@@ -115,7 +100,7 @@ describe("executeBotPy test", function () {
   });
 });
 
-describe("optIn and optOut tests", function () {
+describe("Use Case 3 - Subscribe/Unsubscribe Service Tests", function () {
   it("should return correct Piazza name for valid optIn", function () {
     const i = new interaction();
     optIn.execute(i);
@@ -129,11 +114,28 @@ describe("optIn and optOut tests", function () {
   });
 });
 
-describe("login Tests", function () {
-  it("should return only be used in a server", async function (done) {
-    const i = new interaction();
-    login.execute(i);
-    assert.equal(i.c, "This command can only be used in a server");
-    done();
+describe("Use Case 4 - ExportCSV Test", function () {
+  this.timeout(5000);
+
+  it("should create performance report as a CSV file", function () {
+    console.log(process.cwd());
+
+    fs.exists("piazza.csv", (exists) => {
+      if (exists) {
+        try {
+          fs.unlinkSync("piazza.csv");
+        } catch (err) {
+          console.error(err);
+        }
+      }
+    });
+
+    exportCSV.saveCSV();
+    fs.closeSync(fs.openSync("piazza.csv", "w"));
+
+    fs.exists("piazza.csv", (exists) => {
+      console.log(exists);
+      assert.equal(exists, true);
+    });
   });
 });

@@ -48,6 +48,11 @@ class interaction {
             getInteger(name) {
                 const m = {'p1': "1", 'p2': "2", 'p3': "3", 'p4': "4"}
                 return m[name];
+            },
+
+            getString(str) {
+                const n = {'name': "PiazzaName"}
+                return n[str];
             }
         }
 
@@ -107,4 +112,19 @@ describe("executeBotPy test", function () {
             }
         )
     })
+});
+
+
+describe("optIn and optOut tests", function() {
+    it("should return correct Piazza name for valid optIn", function() {
+        const i = new interaction();
+        optIn.execute(i);
+        assert(i.c, "PiazzaName");
+    });
+
+    it("should return correct message for valid optOut", function() {
+        const i = new interaction();
+        optOut.execute(i);
+        assert(i.c, "You have opted out of the performance notifications.")
+    });
 });

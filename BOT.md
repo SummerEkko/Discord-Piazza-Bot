@@ -3,8 +3,6 @@
 
 ### Bot Implementation
 
-In implementing your bot, you will have to primary tasks:
-
 * **Bot Platform**: As discussed in DESIGN.md, fully operational bot was developed based on **Discord**, in which responses/events are triggered by pre-defined commands. 
 * **Bot Integration**: Basic converation/interaction with bot are implemented. As of the current BOT implementation, our bot is able to complete the selected uses cases (Use case #1, #3 and #4) below:
     1. By `set` command, users are able to customize performance matrix: Questions asked, Answer to Questions, Most Views, and Endorsement by other users.

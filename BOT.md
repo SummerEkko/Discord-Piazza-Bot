@@ -110,8 +110,8 @@ Tests suite achieves >80% code coverage, as measured by `c8`. Test coverage demo
 
 ### Mocking Service Component
 
-Code available in test folder.
+Code available in the test folder under `dev` branch.
 
 ### Screencast
 
-Create a screencast of your bot performing your three primary use cases. Demonstrate your tests being executed.
+- [Project Milestone Screencast] (https://drive.google.com/file/d/1KREQiZcQ44ieOZf7FGXZv_xNx3icEu3Y/view?usp=sharing)

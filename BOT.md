@@ -114,4 +114,4 @@ Code available in the test folder under `dev` branch.
 
 ### Screencast
 
-- [Project Milestone Screencast] (https://drive.google.com/file/d/1KREQiZcQ44ieOZf7FGXZv_xNx3icEu3Y/view?usp=sharing)
+- [Project Milestone Screencast](https://drive.google.com/file/d/1KREQiZcQ44ieOZf7FGXZv_xNx3icEu3Y/view?usp=sharing)

@@ -16,6 +16,8 @@ Zhiyuan Ma ([zma24](mailto:zma24@ncsu.edu))
 ## Bot: Milestone
 [BOT.md](BOT.md)
 
+## Process: Milestone
+[PROCESS.md](PROCESS.md)
 
 ## Installation
 1. Node packages

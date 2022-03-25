@@ -1,4 +1,5 @@
 const cron = require('cron');
+const roleManager = require('../utils/roleManager');
 
 module.exports = {
     name: 'ready',
@@ -8,6 +9,11 @@ module.exports = {
 
         const guild = client.guilds.cache.get('950903036442734664');
         const channel = guild.channels.cache.get('950999329588531220');
+
+        const roleName = 'Level 1';
+        const userId = '516753760207503410';
+        roleManager.changeRoleTo(guild, userId, roleName);
+
         channel.send(`Test Test`);
          // @todo: message content and format
         let scheduledMessage = new cron.CronJob(

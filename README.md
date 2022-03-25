@@ -15,4 +15,8 @@ Zhiyuan Ma ([zma24](mailto:zma24@ncsu.edu))
 
 
 ## Bot: Milestone
-Please go to dev branch: https://github.ncsu.edu/csc510-s2022/CSC510-10/tree/dev
+Please go to the dev branch: https://github.ncsu.edu/csc510-s2022/CSC510-10/tree/dev
+
+
+## Process: Milestone
+Please go to the dev branch: https://github.ncsu.edu/csc510-s2022/CSC510-10/tree/dev

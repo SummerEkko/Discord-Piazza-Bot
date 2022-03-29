@@ -1,5 +1,6 @@
 from piazza_api import Piazza
 import pandas as pd
+from datetime import date
 
 def p_login():
     """Login to piazza, prompts for email and password."""
@@ -92,18 +93,20 @@ def pull_data(network_id):
     student_data = get_student_data(post_df)
     return student_data
 
-def data_on_day(date, network_id):
+def data_on_day(network_id, search_date = None):
     """
     Return student statistics for posts on date given. Format date as YYYY-MM-DD.
     
-    date: str
     network_id: str
+    search_date: str
     """
+    if not search_date:
+        search_date = date.today().strftime('%Y-%m-%d')
     p = p_login()
     course = get_course(p, network_id)
     instructor_id = ['l0k52ugr1jf4xv','gd6v7134AUa']
     post_df = get_post_data(course, instructor_id)
-    one_day = post_df[post_df['date'].str.contains(date)]
+    one_day = post_df[post_df['date'].str.contains(search_date)]
     student_data = get_student_data(one_day)
     return student_data
 

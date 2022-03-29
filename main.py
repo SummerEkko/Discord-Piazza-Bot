@@ -1,13 +1,14 @@
 import pymongo
-import ps
+import piazza_scrape as ps
 
-server_link = "" # use server url in config.json
+server_link = "" # server url in config.json
 myClient = pymongo.MongoClient(server_link)
 
 mydb = myClient["CSC-510-DB"]
 totalDataTemp = mydb["totalDataTemp"]
 
-allData = ps.getPiazzaData()
+network_id = "" # network id in config.json
+allData = ps.pull_data(network_id)
 dataList = []
 
 for info in allData:

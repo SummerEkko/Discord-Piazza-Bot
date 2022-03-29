@@ -17,16 +17,16 @@ def get_course(p, network_id):
     """
     return p.network(network_id)
 
-def get_user_emails(course):
+def get_student_emails(course):
+    """
+    Return dict of student Piazza ids to emails
+    """
     students = {}
-    instructors = {}
     user_info = course.get_all_users()
     for user in user_info:
         if user['role'] == 'student':
             students[user['id']] = user['email']
-        else:
-            instructors[user['id']] = user['email']
-    return students, instructors
+    return students
 
 def get_post_data(course, instructor_id):
     """
@@ -70,8 +70,9 @@ def get_post_data(course, instructor_id):
             for child in curr['children']:
                 queue.append(child)
 
-    
-    post_df.drop(post_df[post_df['uid'].isin(instructor_id)].index, inplace=True)
+    student_info = get_student_emails(course)
+    post_df['uid'] = post_df['uid'].map(student_info)
+    post_df.drop(post_df[pd.isna(post_df['uid'])].index, inplace=True)
     return post_df
 
 def get_student_data(post_df):

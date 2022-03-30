@@ -94,7 +94,7 @@ def get_student_data(post_df):
         q = quest.shape[0]
         a = ans.shape[0]
         # student piazza id, questions, answers/followups, views, endorsements
-        student_data.append([stud, q, a, views, likes])
+        student_data.append({'Email': stud, 'Questions': q, 'Answers': a, 'Views': views, 'Endorsements': likes])
     return student_data
 
 def pull_data(network_id):

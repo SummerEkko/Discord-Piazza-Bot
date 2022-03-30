@@ -22,6 +22,7 @@ def get_post_data(course):
 
     posts = course.iter_all_posts()
     obs_count = 0
+    # Get post number, id, activity type, date, user id, views data
     for post in posts:
         log = post['change_log']
         if log[0]['v'] == 'private': # Private post, not counted
@@ -44,12 +45,20 @@ def get_post_data(course):
         while len(queue) > 0:
             curr = queue.pop(0)
             if 'answer' not in curr['type']:
-                endorsements = len(curr['tag_good_arr'])
+                endorsement_ids = curr['tag_good_arr']
             else:
-                endorsements = len(curr['tag_endorse_arr'])
+                endorsement_ids = curr['tag_endorse_arr']
 
-            post_df.loc[(post_df['date'] == curr['created']) & (post_df['postNo'] == post_no), 'endorsements'] = endorsements
-            
+            # Remove endorsement from the activity author
+            poster = post_df.loc[(post_df['date'] == curr['created']) &
+                                 (post_df['postNo'] == post_no), 'uid'].values
+            if len(poster) > 0:
+                if poster[0] in endorsement_ids:
+                    endorsement_ids.remove(poster[0])
+                # Add endorsements
+                post_df.loc[(post_df['date'] == curr['created']) &
+                            (post_df['postNo'] == post_no), 'endorsements'] = len(endorsement_ids)
+
             for child in curr['children']:
                 queue.append(child)
 

@@ -112,18 +112,3 @@ def pull_data(username, password, network_id):
     post_df = pull_post_data(username, password, network_id)
     student_data = get_student_data(post_df)
     return student_data
-
-def pull_one_day_data(username, password, network_id, search_date = None):
-    """
-    Return student statistics for Piazza activity on date given. Format date as YYYY-MM-DD.
-    
-    search_date: str
-    """
-    if not search_date: # Use activity from today
-        search_date = date.today().strftime('%Y-%m-%d')
-
-    post_df = pull_post_data(username, password, network_id)
-    # Only use posts for the date given
-    one_day = post_df[post_df['date'].str.contains(search_date)]
-    student_data = get_student_data(one_day)
-    return student_data

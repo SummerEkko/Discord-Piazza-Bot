@@ -1,22 +1,39 @@
+from apscheduler.schedulers.blocking import BlockingScheduler
 import pymongo
-import piazza_scrape as ps
+import python.piazza_scrape as ps
 
-server_link = "" # server url in config.json
-myClient = pymongo.MongoClient(server_link)
+db_url = "" # Add mongodb from config
+myClient = pymongo.MongoClient(db_url)
 
-mydb = myClient["CSC-510-DB"]
-totalDataTemp = mydb["totalDataTemp"]
+mydb = myClient["myFirstDatabase"]
+totalData = mydb["totalData"]
+dailyData = mydb["dailyData"]
+instructorTable = mydb["instructordatas"]
+username = instructorTable.find_one()['InstructorID']
+password = instructorTable.find_one()['InstructorPassword']
+networkID = instructorTable.find_one()['NetworkID']
 
-network_id = "" # network id in config.json
-allData = ps.pull_data(network_id)
-dataList = []
+def initTotal():
+    totalData.delete_many({})
+    allData = ps.pull_data(username, password, networkID)
+    totalData.insert_many(allData)
 
-for info in allData:
-    dataList.append({info[0]: info[1:]})
+def updateDaily():
+    allData = ps.pull_one_day_data(username, password, networkID)
+    dailyData.insert_many(allData)
 
-# print(allData[1])
-# for k in dataDict:
-#     print(k, dataDict[k])
-#     break
-# print(dataList)
-totalDataTemp.insert_many(dataList)
+def empty():
+    dailyData.delete_many({})
+
+sched = BlockingScheduler()
+
+def scheduleJobs():
+    sched.add_job(initTotal, 'cron', hour='21', minute='20', second='00')
+    sched.add_job(updateDaily, 'cron', hour='21', minute='35', second='00')
+    # empty the daily database
+    sched.add_job(empty, 'cron', hour='00', minute='00', second='00')
+    # sched.add_job(empty, 'interval', seconds=5)
+    sched.start()
+
+if __name__ == '__main__':
+    scheduleJobs()

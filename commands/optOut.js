@@ -1,4 +1,5 @@
 const {SlashCommandBuilder} = require('@discordjs/builders');
+const studentFunc = require("../func/studentFunc");
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -9,8 +10,8 @@ module.exports = {
             await interaction.reply('This command can only be used in a server');
             return;
         }
-        // todo: check if the user is already opted in
-        // todo: save user's name, discord id and preference to db
+        const id = interaction.member.id;
+        studentFunc.save("", id, false);
         await interaction.reply(`You have opted out of the performance notifications.`);
     },
 }

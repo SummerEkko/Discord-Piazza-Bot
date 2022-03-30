@@ -1,3 +1,4 @@
-"QuestionsAsked","AnswersToQuestions","MostViews","EndorsementByOtherUsers","_id","__v"
-1,1,1,1,"62297b874563ed7df5d8ca57",0
-1,1,1,1,"62297b9e2ad503ceef518550",0
+"Email","Questions","Answers","Views","Endorsements","_id","__v"
+"rschen@ncsu.edu",3,1,10,0,"6243b8202cb141b2202cf887",
+"zlu5@ncsu.edu",1,0,3,2,"6243b8202cb141b2202cf888",
+"zma24@ncsu.edu",0,3,3,2,"6243b8202cb141b2202cf889",

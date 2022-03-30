@@ -1,10 +1,9 @@
 const fs = require('fs');
 const {Client, Intents, Collection} = require('discord.js');
 const {token, mongodb} = require('./config.json');
-const mongoose = require("mongoose");
 
-require('./models/PiazzaData')
-mongoose.connect(mongodb).then(() => console.log('MongoDB Connected')).catch(err => console.log(err));
+const mongoose = require("mongoose");
+mongoose.connect(mongodb).then(() => console.log('MongoDB Connected in index.js')).catch(err => console.log(err));
 
 const client = new Client({intents: [Intents.FLAGS.GUILDS]});
 

@@ -1,5 +1,6 @@
 const {SlashCommandBuilder} = require('@discordjs/builders');
 const exportCSV = require('../utils/exportCSV');
+const fs = require("fs");
 
 module.exports = {
     data: new SlashCommandBuilder()

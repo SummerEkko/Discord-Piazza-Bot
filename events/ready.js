@@ -1,6 +1,5 @@
 const cron = require('cron');
-const roleManager = require('../utils/roleManager');
-const updateRole = require("../func/updateRole");
+const roleManager = require("../func/roleManager");
 
 module.exports = {
     name: 'ready',
@@ -11,15 +10,20 @@ module.exports = {
         const guild = client.guilds.cache.get('950903036442734664');
         const channel = guild.channels.cache.get('950999329588531220');
 
-        updateRole.update(guild).then(() => {
-            console.log("Roles updated");
-        });
-        // const roleName = 'Level 1';
-        // const userId = '516753760207503410';
-        // roleManager.changeRoleTo(guild, userId, roleName);
-
         channel.send(`Test Test`);
-         // @todo: message content and format
+        // @todo: message content and format
+        let roleUpdateJob = new cron.CronJob(
+            '*/10 * * * * *',
+            () => {
+                roleManager.update(guild).then(() => {
+                    console.log("Roles updated");
+                });
+            },
+            null,
+            true,
+            'America/New_York'
+        )
+
         let scheduledMessage = new cron.CronJob(
             '*/10 * * * * *',
             () => {
@@ -29,6 +33,8 @@ module.exports = {
             true,
             'America/New_York'
         );
+
+        roleUpdateJob.start();
         scheduledMessage.start()
     }
 }

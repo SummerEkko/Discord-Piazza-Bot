@@ -1,25 +1,11 @@
 from piazza_api import Piazza
 import pandas as pd
 from datetime import date
-
-def p_login():
-    """Login to piazza, prompts for email and password."""
-    p = Piazza()
-    p.user_login()
-    return p
-
-def get_course(p, network_id):
-    """
-    Return course object for given network id.
-    
-    p: Piazza object
-    network_id: str
-    """
-    return p.network(network_id)
+import pymongo
 
 def get_student_emails(course):
     """
-    Return dict of student Piazza ids to emails
+    Return dictionary of student Piazza ids to emails
     """
     students = {}
     user_info = course.get_all_users()
@@ -28,11 +14,9 @@ def get_student_emails(course):
             students[user['id']] = user['email']
     return students
 
-def get_post_data(course, instructor_id):
+def get_post_data(course):
     """
     Get data from all posts, excluding instructor activity.
-    
-    instructor_id: List[str]
     """
     post_df_vars = ['postNo','id','activity','date','uid','endorsements','views']
     post_df = pd.DataFrame(columns=post_df_vars)
@@ -94,50 +78,44 @@ def get_student_data(post_df):
         q = quest.shape[0]
         a = ans.shape[0]
         # student piazza id, questions, answers/followups, views, endorsements
-        student_data.append({'Email': stud, 'Questions': q, 'Answers': a, 'Views': views, 'Endorsements': likes])
+        student_data.append([stud, q, a, views, likes])
     return student_data
 
-def pull_data(network_id):
+def pull_data(db_link):
     """
-    Initialize student data. Returns student statistics based on all student post activity.
+    Return student statistic based on all public, non-anonymous post activity.
+    """
+    # Get instructor login from MongoDB
+    myClient = pymongo.MongoClient(db_link)
+    mydb = myClient['myFirstDatabase']
+    myTable = mydb['instructordatas']
     
-    network_id: str
-    """
-    p = p_login()
-    course = get_course(p, network_id)
-    instructor_id = ['l0k52ugr1jf4xv','gd6v7134AUa']
-    post_df = get_post_data(course, instructor_id)
+    tableSearch = myTable.find_one()
+    if not tableSearch:
+        exit('No instructor data table in MongoDB')
+        
+    username, password = tableSearch['InstructorID'], tableSearch['InstructorPassword']
+    network_id = tableSearch['NetworkID']
+    
+    if username == None or len(username) == 0 or password == None or len(password) == 0:
+        exit('Incomplete instructor login credentials')
+    if network_id == None or len(network_id) == 0:
+        exit('Invalid Piazza course ID')
+    
+    # Login to Piazza
+    p = Piazza()
+    try:
+        p.user_login(username, password)
+    except:
+        exit('Invalid login credentials')
+    
+    # Get Piazza course
+    try:
+        course = p.network(network_id)
+        test_post = course.get_post(1)
+    except:
+        exit("Bad Piazza course ID")
+        
+    post_df = get_post_data(course)
     student_data = get_student_data(post_df)
-    return student_data
-
-def data_on_day(network_id, search_date = None):
-    """
-    Return student statistics for posts on date given. Format date as YYYY-MM-DD.
-    
-    search_date: str
-    network_id: str
-    """
-    if not search_date:
-        search_date = date.today().strftime('%Y-%m-%d')
-    p = p_login()
-    course = get_course(p, network_id)
-    instructor_id = ['l0k52ugr1jf4xv','gd6v7134AUa']
-    post_df = get_post_data(course, instructor_id)
-    one_day = post_df[post_df['date'].str.contains(search_date)]
-    
-    student_data = get_student_data(one_day)
-    return student_data
-
-def latest_post_data(network_id):
-    """
-    Return student statistics for latest post.
-    
-    network_id: str
-    """
-    p = p_login()
-    course = get_course(p, network_id)
-    instructor_id = ['l0k52ugr1jf4xv','gd6v7134AUa']
-    post_df = get_post_data(course, instructor_id)
-    last_post = post_df[post_df['postNo'] == max(post_df['postNo'])]
-    student_data = get_student_data(last_post)
     return student_data

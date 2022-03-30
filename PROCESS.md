@@ -19,7 +19,7 @@ See notes [here](https://docs.google.com/document/d/1AVRSzfsi8DEGgnHe79Td1vbvEZe
 
 * Database design - everyone
 * Piazza data collection and storage in database - rschen, kgao2
-* Database integration - zma24
+* Database integration with JS - zma24
 * Implement assigning level roles in Discord - zma24
 * Create mock data for Piazza - everyone
 * Research sending public vs. private messages on Discord from bot - zlu5

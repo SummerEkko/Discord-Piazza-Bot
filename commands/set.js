@@ -91,18 +91,7 @@ module.exports = {
     const p3 = interaction.options.getInteger("p3");
     const p4 = interaction.options.getInteger("p4");
 
-    //console.log("Here is the user ID: " + memberID);
     InstructorData.updateMetrics(userID, p1, p2, p3, p4);
-
-    // mongoose
-    //   .collection("instructordatas")
-    //   .update(
-    //     { _id: ObjectID("623fbfa82fb1159019d6e6d0") },
-    //     { $set: { P1: p1 } },
-    //     function (err, result) {
-    //       console.log(result);
-    //     }
-    //   );
 
     // todo: store points parameter in database
     await interaction.reply(
@@ -112,11 +101,5 @@ module.exports = {
         `Most views: ${p3}\n` +
         `Endorsement by other users: ${p4}`
     );
-
-    //     mongoose
-    //     .connect(mongodb)
-    //     .then(() => console.log("MongoDB Connected"))
-    //     .catch((err) => console.log(err));
-    //   const instructorData = mongoose.model("InstructorData");
   },
 };

@@ -51,25 +51,6 @@ module.exports = {
             ephemeral: true,
           });
 
-          //   mongoose
-          //     .connect(mongodb)
-          //     .then(() => console.log("MongoDB Connected"))
-          //     .catch((err) => console.log(err));
-
-          //   const InstructorData = mongoose.model("InstructorData");
-
-          //   const instructor = new InstructorData({
-          //     MemberID: interaction.user?.id,
-          //     InstructorID: email,
-          //     InstructorPassword: password,
-          //     NetworkID: networkId,
-          //   });
-
-          //   instructor
-          //     .save()
-          //     .then(() => console.log("Saved"))
-          //     .catch((err) => console.log(err));
-
           return value;
         })
         .then((value) => {

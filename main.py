@@ -22,6 +22,13 @@ def updateDaily():
     allData = ps.pull_one_day_data(username, password, networkID)
     dailyData.insert_many(allData)
 
+def updateTotal():
+    lastDay = ps.pull_one_day_data(username, password, networkID)
+    if len(lastDay) > 0:
+        for student in lastDay:
+            changed = {item[0]: item[1] for item in student.items() if item[1] != 0 and item[0] != 'Email'}
+            totalData.update_one({'Email': student['Email']}, {'$inc': changed})
+
 def empty():
     dailyData.delete_many({})
 

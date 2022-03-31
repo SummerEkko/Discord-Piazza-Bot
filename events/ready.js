@@ -1,6 +1,7 @@
 const cron = require('cron');
 const roleManager = require("../func/roleManager");
 const studentFunc = require("../func/studentFunc");
+const {saveCSV} = require("../utils/exportCSV");
 
 module.exports = {
     name: 'ready',
@@ -52,6 +53,17 @@ module.exports = {
             'America/New_York'
         );
 
+        let saveCSVJob = new cron.CronJob(
+            '*/10 * * * * *',
+            () => {
+                saveCSV(mongoose)
+            },
+            null,
+            true,
+            'America/New_York'
+        )
+
+        saveCSVJob.start();
         studentPointUpdateJob.start();
         roleUpdateJob.start();
         scheduledMessage.start()

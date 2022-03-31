@@ -1,9 +1,12 @@
 from apscheduler.schedulers.blocking import BlockingScheduler
 import pymongo
 import python.piazza_scrape as ps
+import copy, json
 
-db_url = "" # Add mongodb from config
-myClient = pymongo.MongoClient(db_url)
+with open('config.json') as f:
+    config = json.load(f)
+
+myClient = pymongo.MongoClient(config['mongodb'])
 
 mydb = myClient["myFirstDatabase"]
 totalData = mydb["totalData"]
@@ -22,9 +25,9 @@ def update(initialize = False):
     Overwrite daily and total data database with latest data.
     If initialize is true, only overwrite total data.
     """
-    allData = ps.pull_data(username, password, networkID)
+    allData = ps.pull_data(username, password, networkID, p1, p2, p3, p4)
     if not initialize:
-        lastDay = allData
+        lastDay = copy.deepcopy(allData)
         for student in lastDay:
             obs = totalData.find_one({'Email': student['Email']})
             for key in student.keys():
@@ -39,12 +42,14 @@ def update(initialize = False):
 sched = BlockingScheduler()
 
 def scheduleJobs():
-    sched.add_job(update, 'cron', args=[True], year = '2022', month = '04', day = '01', hour='00', minute='00', second='00')
-    sched.add_job(update, 'cron', hour='00', minute='00', second='00')
-
-    # regular update
-    # sched.add_job(update, 'cron', hour='00', minute='00', second='00')
-    # sched.start()
+    """
+    Schedule daily Piazza data pull.
+    """
+    sched.add_job(update, 'interval', seconds = 60)
+    sched.start()
 
 if __name__ == '__main__':
+    # Initialize database
+    update(True)
+    # Daily Piazza pull
     scheduleJobs()

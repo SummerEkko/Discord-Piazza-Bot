@@ -1,25 +1,19 @@
-const mongoose = require("mongoose");
-const {mongodb} = require("../config.json");
 require('../models/Hierarchy');
 require('../models/Student');
 
-async function update(guild) {
-    mongoose.connect(mongodb).then(() => console.log('MongoDB connected in roleManager.js')).catch(err => console.log(err)).then(
-        async () => {
-            const roles = await getRoleArray(mongoose, guild);
-            const studentPoint = mongoose.model('student');
-            for await (const sp of studentPoint.find()) {
-                const name = sp['Name'];
-                const discordId = sp['DiscordId'];
-                const point = sp['Point'];
-                const roleName = getRoleName(point, roles);
-                if (!roleName) {
-                    continue;
-                }
-                await changeRoleTo(guild, discordId, roleName);
-            }
+async function update(guild, mongoose) {
+    const roles = await getRoleArray(mongoose, guild);
+    const studentPoint = mongoose.model('student');
+    for await (const sp of studentPoint.find()) {
+        const name = sp['Name'];
+        const discordId = sp['DiscordId'];
+        const point = sp['Point'];
+        const roleName = getRoleName(point, roles);
+        if (!roleName) {
+            continue;
         }
-    ).then(() => mongoose.disconnect()).then(() => console.log('MongoDB disconnected in roleManager.js'));
+        await changeRoleTo(guild, discordId, roleName);
+    }
 }
 
 async function getRoleArray(mongoose, guild) {

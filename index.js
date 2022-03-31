@@ -21,9 +21,9 @@ const eventFiles = fs.readdirSync('./events').filter(file => file.endsWith('.js'
 eventFiles.forEach(file => {
     const event = require(`./events/${file}`);
     if (event.once) {
-        client.once(event.name, (...args) => event.execute(...args));
+        client.once(event.name, (...args) => event.execute(...args, mongoose));
     } else {
-        client.on(event.name, (...args) => event.execute(...args));
+        client.on(event.name, (...args) => event.execute(...args, mongoose));
     }
 });
 

@@ -8,14 +8,14 @@ module.exports = {
             .setName('email')
             .setRequired(true)
             .setDescription('Please provide with your Piazza Email')),
-    async execute(interaction) {
+    async execute(interaction, mongoose) {
         if (!interaction.guild) {
             await interaction.reply('This command can only be used in a server');
             return;
         }
         const email = interaction.options.getString('email');
         const id = interaction.member.id;
-        studentFunc.save(email, id, true);
+        studentFunc.save(email, id, true, mongoose);
         await interaction.reply(`Your Piazza email: ${email}`);
     },
 }

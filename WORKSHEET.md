@@ -28,8 +28,8 @@
 | Deliverable    | Item/Status   |  Issues/Tasks
 | -------------- | ------------  |  ------------
 | **Use Case 1** | **Customize daily performance summary**                         | &nbsp;
-| Unit Tests       | [Restricted command](test/test.js#L54)  |  #54
-| Unit Tests       | [Custom weight matrix](test/test.js#L63)     |  #63
+| Unit Tests       | Restricted command  |  #54
+| Unit Tests       | Custom weight matrix for scoring    |  #63
 | **Use Case 2** | **Customize performance hierarchy ranking**                           | &nbsp;
 | Scenario       | Ability to assign level roles to students in Discord                  |  #33
 | Scenario       | Ability to set custom ranking hierarchy/points per level (instructor) |  #34
@@ -42,3 +42,10 @@
 | Scenario       | Ability to retrieve data from database as CSV file |  #35, #42
 | Scenario       | Ability to send file to instructor in Discord      |  #36
 | Unit Tests     | Incomplete    | [Create report](test/test.js#L120)
+| **Database Work** | **Scrape data from Piazza**                 | &nbsp;
+| Scenario       | Use data collection functions to update collections in MongoDB database |  #50  
+| Scenario       | Use data collection functions to update collections in MongoDB database |  #52  
+| Scenario       | Change student data collection to exclude endorsements from original poster |  #52 
+
+
+

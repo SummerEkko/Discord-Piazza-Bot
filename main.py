@@ -1,7 +1,7 @@
-from apscheduler.schedulers.blocking import BlockingScheduler
+from apscheduler.schedulers.background import BackgroundScheduler
 import pymongo
 import python.piazza_scrape as ps
-import copy, json
+import copy, json, datetime, time
 
 with open('config.json') as f:
     config = json.load(f)
@@ -38,8 +38,9 @@ def update(initialize = False):
 
     totalData.delete_many({})
     totalData.insert_many(allData)
+    date = str(datetime.datetime.now())
 
-sched = BlockingScheduler()
+sched = BackgroundScheduler()
 
 def scheduleJobs():
     """
@@ -47,6 +48,8 @@ def scheduleJobs():
     """
     sched.add_job(update, 'interval', seconds = 60)
     sched.start()
+    while True:
+        time.sleep(1)
 
 if __name__ == '__main__':
     # Initialize database

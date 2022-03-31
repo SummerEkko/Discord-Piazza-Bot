@@ -2,9 +2,9 @@ const mongoose = require("mongoose");
 const {Schema} = mongoose;
 
 const hierarchySchema = new Schema({
-    DiscordID: String,
-    LevelName: String,
-    Point: Number,
+    DiscordID: {type: String, default: ""},
+    LevelName: {type: String, default: ""},
+    Point: {type: Number, default: 0}
 });
 
-mongoose.model("hierarchy", hierarchySchema,"hierarchies");
+mongoose.model("hierarchy", hierarchySchema, "hierarchies");

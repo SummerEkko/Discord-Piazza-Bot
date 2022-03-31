@@ -15,7 +15,7 @@ module.exports = {
         }
         const email = interaction.options.getString('email');
         const id = interaction.member.id;
-        studentFunc.save(email, id, true, mongoose);
+        await studentFunc.save(email, id, true, mongoose);
         await interaction.reply(`Your Piazza email: ${email}`);
     },
 }

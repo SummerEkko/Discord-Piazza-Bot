@@ -1,12 +1,9 @@
-const {mongodb} = require('../config.json');
-const mongoose = require("mongoose");
 const json2csv = require('json2csv');
 const fs = require('fs');
 require('../models/TotalData')
 
 
-function saveCSV() {
-    mongoose.connect(mongodb).then(() => console.log('MongoDB connected in exportCSV.js')).catch(err => console.log(err));
+function saveCSV(mongoose) {
     const TotalData = mongoose.model('totalData');
     TotalData.find({}).lean().exec(
         (err, data) => {
@@ -23,7 +20,6 @@ function saveCSV() {
                         console.log(err);
                     } else {
                         console.log('File successfully written!');
-                        mongoose.disconnect().then(r => console.log("MongoDB disconnected in exportCSV.js")).catch(err => console.log(err));
                     }
                 });
             }

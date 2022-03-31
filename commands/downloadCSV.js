@@ -6,15 +6,9 @@ module.exports = {
     data: new SlashCommandBuilder()
         .setName('download-csv')
         .setDescription('Generates a CSV file of performance data.'),
-    async execute(interaction) {
-        exportCSV.saveCSV();
+    async execute(interaction, mongoose) {
+        // todo:gi
+        exportCSV.saveCSV(mongoose);
         await interaction.reply({content: 'CSV file generated.', files: [{attachment: './piazza.csv', name: 'piazza.csv'}],});
     },
 }
-
-// (async () => 
-// {
-//     if (process.env.NODE_ENV != 'test') {
-//         await execute();
-//     }
-// })()

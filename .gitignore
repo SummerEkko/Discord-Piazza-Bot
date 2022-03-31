@@ -119,3 +119,4 @@ dist
 config.json
 .idea
 .DS_Store
+.vscode

@@ -32,9 +32,11 @@ async function getRoleArray(mongoose, guild) {
 
 function getRoleName(point, roles) {
     let roleName = '';
+    let curMax = 0;
     Object.keys(roles).forEach(key => {
-        if (roles[key] <= point) {
-            roleName = key
+        if (roles[key] <= point && roles[key] > curMax) {
+            roleName = key;
+            curMax = roles[key];
         }
     });
     return roleName;

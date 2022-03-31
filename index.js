@@ -1,10 +1,9 @@
 const fs = require('fs');
 const {Client, Intents, Collection} = require('discord.js');
 const {token, mongodb} = require('./config.json');
-const mongoose = require("mongoose");
 
-require('./models/PiazzaData')
-mongoose.connect(mongodb).then(() => console.log('MongoDB Connected')).catch(err => console.log(err));
+const mongoose = require("mongoose");
+mongoose.connect(mongodb).then(() => console.log('MongoDB Connected in index.js')).catch(err => console.log(err));
 
 const client = new Client({intents: [Intents.FLAGS.GUILDS]});
 
@@ -22,9 +21,9 @@ const eventFiles = fs.readdirSync('./events').filter(file => file.endsWith('.js'
 eventFiles.forEach(file => {
     const event = require(`./events/${file}`);
     if (event.once) {
-        client.once(event.name, (...args) => event.execute(...args));
+        client.once(event.name, (...args) => event.execute(...args, mongoose));
     } else {
-        client.on(event.name, (...args) => event.execute(...args));
+        client.on(event.name, (...args) => event.execute(...args, mongoose));
     }
 });
 

@@ -1,6 +1,6 @@
 module.exports = {
     name: "interactionCreate",
-    async execute(interaction) {
+    async execute(interaction, mongoose) {
         if (!interaction.isCommand()) {
             return;
         }
@@ -9,7 +9,7 @@ module.exports = {
         if (!command) return;
 
         try {
-            await command.execute(interaction);
+            await command.execute(interaction, mongoose);
         } catch (error) {
             console.error(error);
             await interaction.reply({content: `There was an error trying to execute that command!`, ephemeral: true});

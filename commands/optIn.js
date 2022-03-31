@@ -1,21 +1,21 @@
 const {SlashCommandBuilder} = require('@discordjs/builders');
-
+const studentFunc = require('../func/studentFunc');
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('opt-in')
         .setDescription('Opt in to receive performance data for students')
         .addStringOption(option => option
-            .setName('name')
+            .setName('email')
             .setRequired(true)
-            .setDescription('Please provide with your Piazza Name')),
-    async execute(interaction) {
+            .setDescription('Please provide with your Piazza Email')),
+    async execute(interaction, mongoose) {
         if (!interaction.guild) {
             await interaction.reply('This command can only be used in a server');
             return;
         }
-        // todo: check if the user is already opted in
-        // todo: save user's name, discord id and preference to db
-        const name = interaction.options.getString('name');
-        await interaction.reply(`Your Piazza name: ${name}`);
+        const email = interaction.options.getString('email');
+        const id = interaction.member.id;
+        studentFunc.save(email, id, true, mongoose);
+        await interaction.reply(`Your Piazza email: ${email}`);
     },
 }

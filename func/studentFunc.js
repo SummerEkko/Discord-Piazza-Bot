@@ -1,6 +1,3 @@
-const mongoose = require("mongoose");
-const {mongodb} = require("../config.json");
-
 require("../models/Student");
 require("../models/TotalData");
 require("../models/DailyData");

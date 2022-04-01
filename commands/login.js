@@ -62,7 +62,7 @@ module.exports = {
                             InstructorPassword,
                             NetworkID
                         );
-                        console.log("login success");
+                        console.log("Login success");
                     }
                 });
         } else {

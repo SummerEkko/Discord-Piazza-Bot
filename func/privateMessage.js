@@ -2,33 +2,25 @@ require("../models/Student")
 require("../models/DailyData")
 
 async function sendMessage(client, mongoose) {
-    getOptInId(mongoose).then((data) => {
-        let listOfDiscordId = Array.from(data.keys());
-        let listOfEmail = Array.from(data.values());
-        for (let i = 0; i < listOfDiscordId.length; i++) {
-            client.users.fetch(listOfDiscordId[i], true).then((a) => {
-                getStudentPoint(mongoose, listOfEmail[i]).then((data) => {
-                    let point = data.Points;
-                    a.send(
+    const data = await getOptInId(mongoose);
+    let listOfDiscordId = Array.from(data.keys());
+    let listOfEmail = Array.from(data.values());
+    const dailyData = mongoose.model("dailyData");
+    const studentPoints = await dailyData.find({});
+    for (let i = 0; i < listOfDiscordId.length; i++) {
+        for (let j = 0; j < studentPoints.length; j++) {
+            if (listOfEmail[i] === studentPoints[j]["Email"]) {
+                let point = studentPoints[j]["Points"];
+                client.users.fetch(listOfDiscordId[i], true).then((user) => {
+                    user.send(
                         "The point you earned today is : " +
                         point +
                         ". Please keep it up!"
                     );
                 });
-            });
+            }
         }
-    });
-}
-
-
-async function getStudentPoint(mongoose, email) {
-    return new Promise(async (resolve, reject) => {
-        const dailyData = mongoose.model("dailyData");
-        const studentPoint = await dailyData
-            .findOne({Email: email})
-            .select("Points");
-        resolve(studentPoint);
-    });
+    }
 }
 
 async function getOptInId(mongoose) {

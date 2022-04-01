@@ -8,7 +8,7 @@ module.exports = {
     name: 'ready',
     once: true,
     execute(client, mongoose) {
-        console.log(`Ready! Logged in as ${client.user.tag}!!!!!!!!!!`);
+        console.log(`Ready! Logged in as ${client.user.tag}!`);
 
         const guild = client.guilds.cache.get('950903036442734664');
         const channel = guild.channels.cache.get('950999329588531220');

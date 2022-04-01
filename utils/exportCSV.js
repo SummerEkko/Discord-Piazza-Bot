@@ -12,7 +12,6 @@ function saveCSV(mongoose) {
             } else {
                 const csvFields = [];
                 TotalData.schema.eachPath(path => csvFields.push(path));
-                console.log(csvFields);
                 const parser = new json2csv.Parser({fields: csvFields});
                 const csvData = parser.parse(data);
                 fs.writeFile('piazza.csv', csvData, err => {

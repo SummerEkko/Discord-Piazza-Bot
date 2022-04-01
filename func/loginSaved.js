@@ -7,22 +7,15 @@ function loginSaved(mongoose, MemberID, InstructorID, InstructorPassword, Networ
         if (err) {
             console.log(err);
         } else {
-            InstructorData.updateOne(
-                {MemberID: MemberID},
-                {
-                    $set: {
-                        InstructorID: InstructorID,
-                        InstructorPassword: InstructorPassword,
-                        NetworkID: NetworkID,
-                    },
+            InstructorData.updateOne({MemberID: MemberID}, {
+                $set: {
+                    InstructorID: InstructorID, InstructorPassword: InstructorPassword, NetworkID: NetworkID,
                 },
-                {upsert: true},
-                function (err, doc) {
-                    if (!err) {
-                        console.log(doc);
-                    }
+            }, {upsert: true}, function (err, doc) {
+                if (err) {
+                    console.log(err);
                 }
-            );
+            });
         }
     });
 }

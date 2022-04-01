@@ -3,22 +3,28 @@ import pymongo
 import python.piazza_scrape as ps
 import copy, json, datetime, time
 
-with open('config.json') as f:
-    config = json.load(f)
+def connect_db():
+    with open('config.json') as f:
+        config = json.load(f)
 
-myClient = pymongo.MongoClient(config['mongodb'])
+    myClient = pymongo.MongoClient(config['mongodb'])
 
-mydb = myClient["myFirstDatabase"]
-totalData = mydb["totalData"]
-dailyData = mydb["dailyData"]
-instructorTable = mydb["instructordatas"]
-username = instructorTable.find_one()['InstructorID']
-password = instructorTable.find_one()['InstructorPassword']
-networkID = instructorTable.find_one()['NetworkID']
-p1 = instructorTable.find_one()['P1']
-p2 = instructorTable.find_one()['P2']
-p3 = instructorTable.find_one()['P3']
-p4 = instructorTable.find_one()['P4']
+    mydb = myClient["CSC-510-DB"]
+    totalData = mydb["totalData"]
+    dailyData = mydb["dailyData"]
+    instructorTable = mydb["instructordatas"]
+    try:
+        username = instructorTable.find_one()['InstructorID']
+        password = instructorTable.find_one()['InstructorPassword']
+        networkID = instructorTable.find_one()['NetworkID']
+        p1 = instructorTable.find_one()['P1']
+        p2 = instructorTable.find_one()['P2']
+        p3 = instructorTable.find_one()['P3']
+        p4 = instructorTable.find_one()['P4']
+    except:
+        exit('Instructor needs to login')
+
+    return myClient, totalData, dailyData, username, password, networkID, p1, p2, p3, p4
 
 def update(initialize = False):
     """
@@ -40,8 +46,6 @@ def update(initialize = False):
     totalData.insert_many(allData)
     date = str(datetime.datetime.now())
 
-sched = BackgroundScheduler()
-
 def scheduleJobs():
     """
     Schedule daily Piazza data pull.
@@ -52,6 +56,8 @@ def scheduleJobs():
         time.sleep(1)
 
 if __name__ == '__main__':
+    myClient, totalData, dailyData, username, password, networkID, p1, p2, p3, p4 = connect_db()
+    sched = BackgroundScheduler()
     # Initialize database
     update(True)
     # Daily Piazza pull

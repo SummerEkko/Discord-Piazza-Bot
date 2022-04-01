@@ -2,6 +2,7 @@ const cron = require('cron');
 const roleManager = require("../func/roleManager");
 const studentFunc = require("../func/studentFunc");
 const {saveCSV} = require("../utils/exportCSV");
+const privateMessage = require("../func/privateMessage");
 
 module.exports = {
     name: 'ready',
@@ -63,6 +64,19 @@ module.exports = {
             'America/New_York'
         )
 
+        let dailyMsg = new cron.CronJob(
+            '*/10 * * * * *',
+            () => {
+                privateMessage.sendMessage(client, mongoose).then(() => {
+                    console.log("Daily message sent");
+                })
+            },
+            null,
+            true,
+            'America/New_York'
+        );
+
+        dailyMsg.start();
         saveCSVJob.start();
         studentPointUpdateJob.start();
         roleUpdateJob.start();

@@ -25,9 +25,9 @@ Zhiyuan Ma ([zma24](mailto:zma24@ncsu.edu))
 ```shell
 npm install
 ```
-2. Python package  
+2. Python packages  
 ```shell
-pip3 install piazza-api
+pip3 install -r requirements.txt
 ```
 This project uses Python3, please make sure you can run `python3` in your terminal.  
 You can look at [executeBotPy.js](/utils/executeBotPy.js) for details.

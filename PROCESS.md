@@ -3,11 +3,11 @@
 
 ## Process
 
+Please see our iteration worksheet and GitHub Project for documentation on story creation and assignment at each iteration.
+
 All stories and tasks are logged in our [GitHub Project](https://github.ncsu.edu/csc510-s2022/CSC510-10/projects/1).
 
-### Iteration Worksheet
-
-See [WORKSHEET.md](WORKSHEET.md).
+See our iteration worksheet here [WORKSHEET.md](WORKSHEET.md).
 
 ## Practices
 

@@ -11,9 +11,9 @@ See [WORKSHEET.md](WORKSHEET.md).
 
 ## Practices
 
-A core practice we did not use before was pair programming. We used pair programming in our sprints when implementing Piazza data collection and storage as well as data collection job scheduling.
+Core practices: Previously, we implemented the design improvement (our design and implementations went through several iterations of planning) practice. A core practice we did not use before was pair programming. We used pair programming in our sprints when implementing Piazza data collection and storage as well as data collection job scheduling.
 
-A corollary practice we did not use before was team continuity. Before, we did most of our work separately, but for this milestone, we met more often to work on bot implementation. We also practiced shrinking teams: we split into two teams as we implemented the Piazza data collection and Discord command parts of our bot implementation.
+Corollary practices: Previously, we implemented shared code (all code available in GitHub) and code & tests (meetings to plan and brainstorm project implementation) practices. A corollary practice we did not use before was team continuity. Before, we did most of our work separately, but for this milestone, we met more often to work on bot implementation. We also practiced shrinking teams; we split into two teams as we implemented the Piazza data collection and Discord command parts of our bot implementation.
 
 See our meeting notes [here](https://docs.google.com/document/d/1AVRSzfsi8DEGgnHe79Td1vbvEZewu9DabqzIXqNt3vk/edit?usp=sharing).
 

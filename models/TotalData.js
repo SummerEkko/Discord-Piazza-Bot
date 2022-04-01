@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const {Schema} = mongoose;
 
-const dailyDataSchema = new Schema({
+const totalDataSchema = new Schema({
     Email: String,
     Questions: Number,
     Answers: Number,
@@ -11,4 +11,4 @@ const dailyDataSchema = new Schema({
 
 });
 
-mongoose.model("dailyData", dailyDataSchema,"dailyData");
+mongoose.model("totalData", totalDataSchema,"totalData");

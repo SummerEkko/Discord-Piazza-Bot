@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
-var instructorDataSchema = new Schema({
+const instructorDataSchema = new Schema({
   MemberID: { type: String, default: "" },
   InstructorID: { type: String, default: "" },
   InstructorPassword: { type: String, default: "" },
@@ -12,8 +12,5 @@ var instructorDataSchema = new Schema({
   P4: { type: Number, default: 1 },
 });
 
-var Instructor = mongoose.model("InstructorData", instructorDataSchema);
-// mongoose.model("InstructorData", instructorDataSchema);
+mongoose.model("instructorData", instructorDataSchema,"instructordatas");
 
-module.exports = Instructor;
-//exports.instructorDataSchema = Instructor;

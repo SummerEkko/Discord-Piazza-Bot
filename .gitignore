@@ -116,6 +116,11 @@ dist
 .yarn/install-state.gz
 .pnp.*
 
+# Python
+__pycache__/
+
 config.json
 .idea
 .DS_Store
+.vscode
+piazza.csv

@@ -16,7 +16,7 @@
   "scripts": {
     "test": "mocha --reporter spec",
     "start": "node index.js",
-    "dev": "nodemon index.js"
+    "dev": "concurrently \"nodemon index.js\" \"python3 main.py\""
   },
   "repository": {
     "type": "git",

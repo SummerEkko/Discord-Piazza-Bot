@@ -11,7 +11,7 @@ See [WORKSHEET.md](WORKSHEET.md).
 
 ## Practices
 
-Core practices: Previously, we implemented the design improvement (our design and implementations went through several iterations of planning) practice. A core practice we did not use before was pair programming. We used pair programming in our sprints when implementing Piazza data collection and storage as well as data collection job scheduling.
+Core practices: Previously, we implemented the design improvement (our design and implementations went through several iterations of planning) practice. There are many design improvement throughout our process, just to name a few. 1. Redesign Discord slash command for customizeRoles to avoid multiple parameter input and input error. The result of that is user will only need to enter 4 parameters input instead of 9. 2. Improve the database scheme to avoid redundance. A core practice we did not use before was pair programming. We used pair programming in our sprints when implementing Piazza data collection and storage as well as data collection job scheduling.
 
 Corollary practices: Previously, we implemented shared code (all code available in GitHub) and code & tests (meetings to plan and brainstorm project implementation) practices. A corollary practice we did not use before was team continuity. Before, we did most of our work separately, but for this milestone, we met more often to work on bot implementation. We also practiced shrinking teams; we split into two teams as we implemented the Piazza data collection and Discord command parts of our bot implementation.
 

@@ -46,3 +46,11 @@ User stories:
 ## TA Demo
 
 4/1, 5:30 pm
+
+## Process Reflection
+
+Include documentation of EACH iteration end. Include status of completed and incomplete tasks, and a process reflection.
+
+During iteration/sprint 1, we divided our use cases into stories and assigned tasks. We completed the database design and started early work on Piazza data collection and all of the Discord commands, particularly for assigning roles in Discord. Most of our work during sprint 1 focused on refining our database design and setting up a database in MongoDB. Our completed tasks were the database design and retrieving data from the database in a CSV file (Use Case 4). During iteration/sprint 2, we completed the Piazza data collection and storage, Discord commands, and database integration with data collection and commands parts.
+
+Before the Process milestone, we implemented some of the core and corollary practices such as shared code, design improvement, and real customer involvement. However most of our meetings were to plan and brainstorm rather than work on our implementation. During the sprints, we had more meetings to work on our bot implementation and started using other practices. Making these changes helped our team work more efficiently. Working together in person allowed us to share ideas when someone was stuck and improved our teamwork. Pair programming and shrinking teams especially helped us when we divided our work into the data collection and Discord command parts. Team members could work on tasks together with pair programming, making the implementation process more smooth and efficient. It was also easier for each subteam to find times to meet. Overall, using more practices improved our workflow and communication during the Process milestone.

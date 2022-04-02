@@ -47,7 +47,7 @@
 | Scenario       | Send data file to instructor once in a private Discord channel after data is retrieved after instructor issues /download command (Complete)      |  #36
 | Unit Tests     | Complete    | See [test.js](test/test.js)
 | **Database Work** | **Scrape data from Piazza**                 | &nbsp;
-| Scenario       | Use data collection functions to update collections in MongoDB database |  #50, #52
+| Scenario       | Use data collection functions to update collections in MongoDB database |  #50, #51, #52, #53
 | **Refactor & Integration Work** | **Code Refactor & System Integration**          | #49
 
 

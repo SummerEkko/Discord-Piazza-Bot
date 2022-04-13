@@ -7,6 +7,7 @@
     "cron": "^1.8.2",
     "discord-api-types": "^0.28.0",
     "discord.js": "^13.6.0",
+    "forever": "^4.0.3",
     "json2csv": "^5.0.7",
     "piazza-api": "^1.0.1"
   },
@@ -17,7 +18,8 @@
   "scripts": {
     "test": "mocha --reporter spec",
     "start": "node index.js",
-    "dev": "concurrently \"nodemon index.js\" \"python3 main.py\""
+    "dev": "concurrently \"nodemon index.js\" \"python3 main.py\"",
+    "forever": "concurrently \"forever index.js\"  \"forever start -c python3 main.py\""
   },
   "repository": {
     "type": "git",

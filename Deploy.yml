@@ -1,0 +1,50 @@
+- name: CSC510-10 - Deployment
+  hosts: vcl
+  become: yes
+  vars_prompt:
+    - name: git_user
+      private: no
+    - name: git_password
+      private: yes
+  tasks:
+    - name: Add nodejs apt key
+      apt_key:
+        url: https://deb.nodesource.com/gpgkey/nodesource.gpg.key
+        state: present
+    - name: Add nodejs apt repository
+      apt_repository:
+        repo: deb https://deb.nodesource.com/node_17.x {{ ansible_lsb.codename }} main
+        state: present
+        update_cache: yes
+    - name: Install nodejs
+      apt:
+        name: nodejs
+        state: latest
+    - name: Install "forever" node.js package
+      npm:
+        name: forever
+        global: yes
+    - name: Install pip3
+      apt:
+        name: python3-pip
+        state: latest
+    - name: Clone CSC510-10
+      expect:
+        command: git clone https://github.ncsu.edu/csc510-s2022/CSC510-10.git /home/CSC510-10
+        responses:
+          Username: "{{ git_user }}"
+          Password: "{{ git_password }}"
+      no_log: true
+    - name: Install packages based on package.json
+      npm:
+        path: /home/CSC510-10
+    - name: Install packages based on requirements.txt
+      shell: "cd /home/CSC510-10 && pip3 install -r requirements.txt"
+    - name: Copy config.json to VCL
+      copy:
+        src=config.json
+        dest=/home/CSC510-10/config.json
+    - name: Start index.js
+      shell: "cd /home/CSC510-10 && sudo nohup forever start -c node index.js &"
+    - name: Start main.py
+      shell: "cd /home/CSC510-10 && sudo nohup forever start -c python3 main.py &"

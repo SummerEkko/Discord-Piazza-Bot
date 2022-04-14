@@ -1,14 +1,8 @@
 const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
-const piazzaDataSchema = new Schema({
-  QuestionsAsked: { type: Number, default: 0 },
-  AnswersToQuestions: { type: Number, default: 0 },
-  MostViews: { type: Number, default: 0 },
-  EndorsementByOtherUsers: { type: Number, default: 0 },
-});
-
 const instructorDataSchema = new Schema({
+  MemberID: { type: String, default: "" },
   InstructorID: { type: String, default: "" },
   InstructorPassword: { type: String, default: "" },
   NetworkID: { type: String, default: "" },
@@ -18,5 +12,5 @@ const instructorDataSchema = new Schema({
   P4: { type: Number, default: 1 },
 });
 
-mongoose.model("piazzaData", piazzaDataSchema);
-mongoose.model("instructorData", instructorDataSchema);
+mongoose.model("instructorData", instructorDataSchema,"instructordatas");
+

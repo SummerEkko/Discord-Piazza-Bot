@@ -1,7 +1,7 @@
 from apscheduler.schedulers.background import BackgroundScheduler
 import pymongo
 import python.piazza_scrape as ps
-import copy, json, time
+import copy, json, datetime, time
 
 def connect_db():
     with open('config.json') as f:
@@ -9,7 +9,7 @@ def connect_db():
 
     myClient = pymongo.MongoClient(config['mongodb'])
 
-    mydb = myClient["CSC-510-DB"]
+    mydb = myClient["myFirstDatabase"]
     totalData = mydb["totalData"]
     dailyData = mydb["dailyData"]
     instructorTable = mydb["instructordatas"]
@@ -28,7 +28,7 @@ def connect_db():
     if p1 < 0 or p1 > 10 or p2 < 0 or p2 > 10 or p3 < 0 or p3 > 10 or p4 < 0 or p4 > 10:
         myClient.close()
         exit('Invalid parameter value')
-    
+
     update(totalData, dailyData, username, password, networkID, p1, p2, p3, p4)
     myClient.close()
 

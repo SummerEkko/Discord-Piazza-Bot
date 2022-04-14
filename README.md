@@ -13,12 +13,41 @@ Zhiyuan Ma ([zma24](mailto:zma24@ncsu.edu))
 
 [DESIGN.md](DESIGN.md)
 
+
+## Bot: Milestone
+[BOT.md](BOT.md)
+
+## Process: Milestone
+[PROCESS.md](PROCESS.md)
+
+## Installation
+1. Node packages
+```shell
+npm install
+```
+2. Python packages  
+```shell
+pip3 install -r requirements.txt
+```
+This project uses Python3, please make sure you can run `python3` in your terminal.  
+You can look at [executeBotPy.js](/utils/executeBotPy.js) for details.
+```javascript
+const botPy = spawn('python3', ['bot.py', email, password, networkId]);
+```
+
+
 ## Discord
-https://discord.gg/PZRgpxjv
+https://discord.gg/ndujxUH7Yu
 
 ## Configuration
-Put Discord **clientId** and **token** in config.json
-https://discord.com/developers/applications
+config.json:  
+ - Discord **clientId**, **token**   
+ - **mongodb** URL  
+ - **piazzaUser**, **piazzaPass** and **piazzaNet**
+
+
+
+To obtain config.json, please contact us directly.
 
 ## Run
 ```shell

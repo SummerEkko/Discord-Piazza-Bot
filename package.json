@@ -3,11 +3,13 @@
     "@discordjs/builders": "^0.12.0",
     "@discordjs/rest": "^0.3.0",
     "chai": "^4.3.6",
+    "concurrently": "^7.0.0",
     "cron": "^1.8.2",
     "discord-api-types": "^0.28.0",
     "discord.js": "^13.6.0",
+    "forever": "^4.0.3",
     "json2csv": "^5.0.7",
-    "mongoose": "^6.2.5"
+    "piazza-api": "^1.0.1"
   },
   "name": "discord-piazza-bot",
   "description": "A bot for Piazza on Discord",
@@ -16,7 +18,8 @@
   "scripts": {
     "test": "mocha --reporter spec",
     "start": "node index.js",
-    "dev": "nodemon index.js"
+    "dev": "concurrently \"nodemon index.js\" \"python3 main.py\"",
+    "forever": "concurrently \"forever index.js\"  \"forever start -c python3 main.py\""
   },
   "repository": {
     "type": "git",
@@ -28,6 +31,7 @@
   "devDependencies": {
     "c8": "^7.11.0",
     "mocha": "^9.2.1",
+    "mongoose": "^6.2.8",
     "nodemon": "^2.0.15"
   }
 }

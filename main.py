@@ -21,12 +21,16 @@ def connect_db():
         p2 = instructorTable.find_one()['P2']
         p3 = instructorTable.find_one()['P3']
         p4 = instructorTable.find_one()['P4']
-        update(totalData, dailyData, username,
-               password, networkID, p1, p2, p3, p4)
-        myClient.close()
     except:
         myClient.close()
         exit('Instructor needs to login')
+
+    if p1 < 0 or p1 > 10 or p2 < 0 or p2 > 10 or p3 < 0 or p3 > 10 or p4 < 0 or p4 > 10:
+        myClient.close()
+        exit('Invalid parameter value')
+
+    update(totalData, dailyData, username, password, networkID, p1, p2, p3, p4)
+    myClient.close()
 
 
 def update(totalData, dailyData, username, password, networkID, p1, p2, p3, p4):
@@ -63,7 +67,5 @@ def scheduleJobs():
 
 if __name__ == '__main__':
     sched = BackgroundScheduler()
-    # Initialize database
-    # update(True)
-    # Daily Piazza pull
+    # Regular Piazza pull
     scheduleJobs()

@@ -34,7 +34,6 @@
         responses:
           Username: "{{ git_user }}"
           Password: "{{ git_password }}"
-      no_log: true
     - name: Install packages based on package.json
       npm:
         path: /home/CSC510-10
@@ -45,6 +44,6 @@
         src=config.json
         dest=/home/CSC510-10/config.json
     - name: Start index.js
-      shell: "cd /home/CSC510-10 && sudo nohup forever start -c node index.js &"
+      shell: "cd /home/CSC510-10 && sudo forever start -c node index.js"
     - name: Start main.py
-      shell: "cd /home/CSC510-10 && sudo nohup forever start -c python3 main.py &"
+      shell: "cd /home/CSC510-10 && sudo forever start -c python3 main.py"

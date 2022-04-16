@@ -10,6 +10,15 @@ async function update(guild, mongoose) {
         const point = sp['Point'];
         const roleName = getRoleName(point, roles);
         if (!roleName) {
+            guild.members.fetch(discordId).then(member => {
+                if (!member) {
+                    console.log(`${discordId} not found in ${guild.name}`);
+                    return;
+                }
+                member.roles.set([]).then(() => {
+                    console.log(`${member.displayName}'s role has been removed`);
+                });
+            });
             continue;
         }
         await changeRoleTo(guild, discordId, roleName);

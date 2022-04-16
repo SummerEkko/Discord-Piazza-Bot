@@ -33,7 +33,8 @@ def get_post_data(course):
                 actId = act['data']
             else:
                 actId = act['cid']
-            if act['anon'] != 'no': # Anonymous poster, not counted
+            # Don't count anonymous posters or updates to posts
+            if act['anon'] != 'no' or 'update' in act['type']:
                 continue
             new_obs = [post_no, actId, act['type'], act['when'], act['uid'], None, views]
             post_df.loc[obs_count] = new_obs

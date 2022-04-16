@@ -5,7 +5,14 @@
 2. `ls ~/.ssh/` - make sure you have already generated ssh keys and copied the public key to the server.  
    Since you are our TA or Professor, you should have access to the server, and I suppose you have related knowledge of this course.  
    If not, this link could be helpful: https://www.digitalocean.com/community/tutorials/how-to-set-up-ssh-keys-2  
-   Please make sure you can **ssh 152.7.176.97 without password**.
+   Create `config` file in `~/.ssh/` if not exists.
+   Put the following content in the file:
+    ```
+    Host vcl
+        HostName 152.7.176.97
+        User YourUnityID
+   ```
+   Please make sure you can **ssh YourUnityID@152.7.176.97 without password**.
 
 3. `ls /etc/ansible/` - make sure you have already created the ansible inventory file.
    You should see the following output:
@@ -72,7 +79,7 @@ config.json should be like:
    git_user:
    git_password:
    ```
-   Please enter your **NCSU git username and password** to clone the repo.  
+   Please enter your **NCSU GitHub unity id and password** to clone the repo.  
 3. Then you should see the following output:
    ```
    PLAY [CSC510-10 - Deployment] **********************************************************************************************************************************************

@@ -1,13 +1,18 @@
 require("../models/InstructorData");
 
-function loginSaved(mongoose, MemberID, InstructorID, InstructorPassword, NetworkID) {
+function loginSaved(mongoose, ServerID, InstructorID, InstructorPassword, NetworkID) {
     const InstructorData = mongoose.model("instructorData");
 
-    InstructorData.find({MemberID: MemberID}, function (err, docs) {
+
+    // empty the table before execution
+
+
+
+    InstructorData.find({ServerID: ServerID}, function (err, docs) {
         if (err) {
             console.log(err);
         } else {
-            InstructorData.updateOne({MemberID: MemberID}, {
+            InstructorData.updateOne({ServerID: ServerID}, {
                 $set: {
                     InstructorID: InstructorID, InstructorPassword: InstructorPassword, NetworkID: NetworkID,
                 },

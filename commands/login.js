@@ -50,14 +50,14 @@ module.exports = {
                 })
                 .then((value) => {
                     if (value.trim() === "Login success") {
-                        const MemberID = interaction.user?.id;
+                        const ServerID = interaction.guild.id;
                         const InstructorID = email;
                         const InstructorPassword = password;
                         const NetworkID = networkId;
 
                         loginSaved(
                             mongoose,
-                            MemberID,
+                            ServerID,
                             InstructorID,
                             InstructorPassword,
                             NetworkID

@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
 const instructorDataSchema = new Schema({
-  MemberID: { type: String, default: "" },
+  ServerID: { type: String, default: "" },
   InstructorID: { type: String, default: "" },
   InstructorPassword: { type: String, default: "" },
   NetworkID: { type: String, default: "" },

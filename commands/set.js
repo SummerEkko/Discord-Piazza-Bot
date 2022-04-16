@@ -78,13 +78,13 @@ module.exports = {
                 ])
         ),
     async execute(interaction, mongoose) {
-        const userID = interaction.user?.id;
+        const ServerID = interaction.guild.id;
         const p1 = interaction.options.getInteger("p1");
         const p2 = interaction.options.getInteger("p2");
         const p3 = interaction.options.getInteger("p3");
         const p4 = interaction.options.getInteger("p4");
 
-        updateMetrics(mongoose, userID, p1, p2, p3, p4);
+        updateMetrics(mongoose, ServerID, p1, p2, p3, p4);
 
         await interaction.reply(
             `Parameters:\n` +

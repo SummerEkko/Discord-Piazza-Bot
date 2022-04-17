@@ -2,14 +2,25 @@ require("../models/Student");
 require("../models/TotalData");
 require("../models/DailyData");
 
-async function save(email, discordID, option, mongoose) {
+async function save(email, discordID, option, mongoose, optOut = false) {
     const studentTable = mongoose.model('student');
-    await studentTable.findOneAndUpdate({DiscordId: discordID}, {
-        $set: {
-            Email: email,
-            Option: option
-        }
-    }, {upsert: true});
+    if (optOut) {
+        await studentTable.findOneAndUpdate({DiscordId: discordID}, {
+            $set: {
+                Email: email,
+                Option: option,
+                Point: 0
+            }
+        }, {upsert: true});
+    } else {
+        await studentTable.findOneAndUpdate({DiscordId: discordID}, {
+            $set: {
+                Email: email,
+                Option: option
+            }
+        }, {upsert: true});
+    }
+
 }
 
 

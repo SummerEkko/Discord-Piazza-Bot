@@ -60,8 +60,6 @@
 | Config       | Provide the tokens in the DEPLOY.md file |  #69 #70
 | **Testing** | **Subscribe to incentive message**                                                     | &nbsp;
 | Usability Testing       | Use the bot to finish some operations, to check whether there are any bugs.                                |  #77
-| **Bug Fix** | **Find bugs and fix them**                 | &nbsp;
-| Find Bugs       | Use the bot as user, to find whether there're bugs. |  #77
 | Fix Bugs       | Fix the bugs      |  #77
 
 

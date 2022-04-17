@@ -11,7 +11,7 @@ module.exports = {
             return;
         }
         const id = interaction.member.id;
-        await studentFunc.save("", id, false, mongoose);
+        await studentFunc.save("", id, false, mongoose, true);
         await interaction.reply(`You have opted out of the performance notifications.`);
     },
 }

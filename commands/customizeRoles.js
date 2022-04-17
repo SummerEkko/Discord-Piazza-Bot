@@ -27,7 +27,7 @@ module.exports = {
         const level2Name = interaction.options.getString("l2");
         const level3Name = interaction.options.getString("l3");
         const incrementalVal = interaction.options.getInteger("incremental");
-        saveLevels(mongoose, guildId, level1Name, level2Name, level3Name, incrementalVal);
+        await saveLevels(mongoose, guildId, level1Name, level2Name, level3Name, incrementalVal);
         await interaction.reply(`Level 1 name: ${level1Name}\n` + `Level 2 name: ${level2Name}\n` + `Level 3 name: ${level3Name}\n` + `increment : ${incrementalVal}`);
     },
 };

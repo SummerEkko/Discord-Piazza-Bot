@@ -4,7 +4,7 @@ Note: Points and places of emails may vary depending on if you engage with posts
 
 Points are calculated based on parameters for each type of participation activity in Piazza. They are all set to 1 by default. Liking your own posted content does not count. Ideally, performance summary and private bot messages should only be sent once a day, but to show our use case works, they are sent every 10 seconds.
 
-The below code snippet is the Cron time scheduler to schedule the performance summary and private bot messages sent every 10 seconds. To schedule this task to send daily, we can simply change `'*/10 * * * * *'` in the second line to something like `'0 0 0 * * *'`. This way, a message will be sent at 12 A.M. EST everyday.
+The below code snippet is the Cron time scheduler `(located in events/ready.js)` to schedule the performance summary and private bot messages sent every 10 seconds. To schedule this task to send daily, we can simply change `'*/10 * * * * *'` in the second line to something like `'0 0 0 * * *'`. This way, a message will be sent at 12 A.M. EST everyday.
 
 ```{js}
 let scheduledMessage = new cron.CronJob(
@@ -80,14 +80,16 @@ Note: Whenever you set the point parameters with the `/set` command, you will ne
 ### Same role for all users
 Check that in the list of Discord server users on the right, there are no roles assigned. All users should either be labeled "Online" or "Offline".
 
-In the #general channel in the Discord server, type "/". From the list of Discord commands, select the `/customize-roles` command with the description "Customize your three roles with incremental points". There are four parameters: "l1", "l2", "l3", and "incremental". Enter "Level1", "Level2", "Level3", and "1000" as the respective parameter values, then send the message. Check that the bot returns the following message in the channel:
+In the #general channel in the Discord server, type "/". From the list of Discord commands, select the `/customize-roles` command with the description "Customize your three roles with incremental points". There are four parameters: "l1", "l2", "l3", and "incremental". Enter "Level 1", "Level 2", "Level 3", and "1000" as the respective parameter values, then send the message. Check that the bot returns the following message in the channel:
 
 "Your input:
 GuildID: your Discord id, which you can verify with the `/user` command (Look for "Your id: *id*" in the bot's return message)
-Level 1 name: Level1
-Level 2 name: Level2
-Level 3 name: Level3
+Level 1 name: Level 1
+Level 2 name: Level 2
+Level 3 name: Level 3
 increment: 1000"
+
+(Important Note: Please ensure you enter parameters as Exactly the above “ Level 1”. Please be aware of the space between “Level” and “1”. Otherwise, our system will just remove all the associated hierarchy from the users) 
 
 Check that the list of server users is updated so that you are assigned the "Level1" role. This may take a minute or so.
 

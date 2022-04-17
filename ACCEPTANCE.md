@@ -27,7 +27,11 @@ First, join our test Piazza course (see email invitation, course name is also CS
 
 ### Login
 
-In the #general channel, type "/". From the list of Discord commands, select the `/login` command with the description "Log in with piazza email and password for instructor". There are three parameters: "email", "password", and "network-id". These values are provided via the Google form. Send the message and check that the bot replies with a private message in the channel: "Login success".
+In the #general channel, type "/". From the list of Discord commands, select the `/login` command with the description "Log in with piazza email and password for instructor". See the list of Discord commands below for reference.
+
+![](images/command_list.jpg)
+
+There are three parameters: "email", "password", and "network-id". These values are provided via the Google form. Send the message and check that the bot replies with a private message in the channel: "Login success".
 
 ### Default performance score parameters
 Check that the #cron channel is sending messages like this:
@@ -52,15 +56,7 @@ Wait until the #cron channel is sending messages with 0 points for all places ag
 ### Set performance score parameters
 In the #general channel, type "/". From the list of Discord commands, select the `/set` command with the description "Set parameters for points". There are four parameters: "p1", "p2", "p3", and "p4". Enter "2", "3", "1", and "4" as the respective parameter values, then send the message. Check that the bot returns the following message in the channel:
 
-"Parameters:
-
-Questions asked: 2
-
-Answers to questions: 3
-
-Most views: 1
-
-Endorsement by other users: 4"
+![](images/set_params.jpg)
 
 Go to Piazza and post a public question with your name shown. Post an answer and follow-up to your question, then like the question. Now check the #cron channel in Discord and wait up to a minute. You should see a few messages like this:
 
@@ -109,47 +105,21 @@ Check that in the list of Discord server users on the right, there are no roles 
 
 In the #general channel in the Discord server, type "/". From the list of Discord commands, select the `/customize-roles` command with the description "Customize your three roles with incremental points". There are four parameters: "l1", "l2", "l3", and "incremental". Enter "Level 1", "Level 2", "Level 3", and "1000" as the respective parameter values, then send the message. Check that the bot returns the following message in the channel:
 
-"Your input:
-
-Level 1 name: Level 1
-
-Level 2 name: Level 2
-
-Level 3 name: Level 3
-
-increment : 1000"
+![](images/level_roles.jpg)
 
 (Important Note: Please ensure you enter parameters as exactly the above "Level 1". Please be aware of the space between "Level" and "1". Otherwise, our system will just remove all the associated roles from the users)
 
 Wait for a minute and check that you are not assigned any role. (The increment defines the number of points you must earn to reach a new level. All users start with no level.)
 
 ### Lowest role
-Repeat the **No role** section instructions with the same parameter values, except for the "incremental" parameter, enter the number of points you have (see `piazza.csv` from the `/download-csv` command). Check that the bot returns the following message:
-
-"Your input:
-
-Level 1 name: Level 1
-
-Level 2 name: Level 2
-
-Level 3 name: Level 3
-
-increment : *your points*"
+Repeat the **No role** section instructions with the same parameter values, except for the "incremental" parameter, enter the number of points you have (see `piazza.csv` from the `/download-csv` command). Check that the bot returns a message like the one in the **No role** section, except with a different number of points next to "increment :".
 
 Check that the list of server users is updated so that you are assigned the "Level 1" role. This may take a minute or so. (Note: If you have not posted anything on Piazza (i.e. enter 0 for the "incremental" parameter), you will not have an assigned level.)
 
 ### Highest role
 Repeat the **No role** section instructions with the same parameter values, except for the "incremental" parameter, enter "1". Check that the bot returns the following message:
 
-"Your input:
-
-Level 1 name: Level 1
-
-Level 2 name: Level 2
-
-Level 3 name: Level 3
-
-increment : 1"
+![](images/level_roles_1.jpg)
 
 Check that the list of server users is updated so that you are assigned the "Level 3" role. This may take a minute or so. (This is dependent on whether you have already posted something on Piazza. Otherwise, you may have no points.)
 

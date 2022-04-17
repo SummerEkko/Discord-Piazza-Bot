@@ -3,11 +3,6 @@ require("../models/InstructorData");
 function loginSaved(mongoose, ServerID, InstructorID, InstructorPassword, NetworkID) {
     const InstructorData = mongoose.model("instructorData");
 
-
-    // empty the table before execution
-
-
-
     InstructorData.find({ServerID: ServerID}, function (err, docs) {
         if (err) {
             console.log(err);

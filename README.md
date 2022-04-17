@@ -20,6 +20,9 @@ Zhiyuan Ma ([zma24](mailto:zma24@ncsu.edu))
 ## Process: Milestone
 [PROCESS.md](PROCESS.md)
 
+## Deploy: Milesone
+[DEPLOY.md](DEPLOY.md)
+
 ## Installation
 1. Node packages
 ```shell

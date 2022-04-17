@@ -19,7 +19,7 @@ async function update(guild, mongoose) {
                     console.log(`${member.displayName}'s role has been removed`);
                 });
             });
-            // continue;
+            continue;
         }
         await changeRoleTo(guild, discordId, roleName);
     }

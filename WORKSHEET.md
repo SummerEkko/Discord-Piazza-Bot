@@ -49,9 +49,7 @@
 | **Database Work** | **Scrape data from Piazza**                 | &nbsp;
 | Scenario       | Use data collection functions to update collections in MongoDB database |  #50, #51, #52, #53
 | **Refactor & Integration Work** | **Code Refactor & System Integration**          | #49
-<<<<<<< HEAD
-=======
-  
+
 ## Week 3
 
 | Deliverable    | Item/Status   |  Issues/Tasks
@@ -64,7 +62,6 @@
 | Configuration  | Provide tokens and credentials in Google form (Complete) |  #66
 | Usability Testing       | Test bot for extreme inputs/outputs and fix bugs accordingly (Complete)          |  #74, #77
 
->>>>>>> abe5bafc775f94d9cf0a126cb9137ac32cf15c73
 
 
 

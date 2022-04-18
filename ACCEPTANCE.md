@@ -51,6 +51,8 @@ STEP 2: There are three parameters: "email", "password", and "network-id". Enter
 
 EXPECTED RESULT: The bot replies with a private message in the channel: "Login success".
 
+![](images/loginsuccess.png)
+
 **PASS/FAIL: PASS**
 
 **RESULT COMMENT: Association is verified. Further verification can be derived from 2.2 and 2.3.** 
@@ -65,6 +67,8 @@ EXPECTED RESULT:
 2. *some email* - 0
 3. *some email* - 0"
 
+![](images/Dailytop1.png)
+
 STEP 2: Go to Piazza (https://piazza.com/class/l0k527orea42id) and post a public question with your name shown. Post an answer and follow-up to your question, then like the question. Now check the #cron channel in Discord and wait up to a minute. 
 
 EXPECTED RESULT:
@@ -73,6 +77,8 @@ EXPECTED RESULT:
 1. *your email* - *positive number*
 2. *some email* - 0
 3. *some email* - 0"
+
+![](images/Dailytop2.png)
 
 The number of points next to your email should be at least 3 (1 question * 1 point and 2 answers/followups * 1 point = 3 points), but may be more depending on the number of views on your post and if there is interaction with/from other Piazza users. You may need to refresh the post to see the views. It is also helpful to point out that performance score parameters are set to "Questions" = 1,"Answers" = 1,"Views" = 1,"Endorsements" = 1. More details on performance score parameters will be discussed in the next section.
 
@@ -128,6 +134,8 @@ EXPECTED RESULT:
 
 The bot returns a message in the channel "CSV file generated." with a CSV file called `piazza.csv`. Check that the first row of the CSV files is: `"Email","Questions","Answers","Views","Endorsements","_id","__v"`. The other rows contain data on students in the Piazza course. Check that the number of questions, answers, views, and endorsements multiplied by the parameters from the `/set` command is equal to the number of points for each student:
 
+![](images/csvdownload.png)
+
 Points = Questions * p1 + Answers * p2 + Views * p3 + Endorsements * p4
 
 Note: Whenever you set the point parameters with the `/set` command, you will need to wait a little for the total points to be synchronized when you use the `/download-csv` command. This won't become an issue if the Cron schedule to set to daily delivery as described in `Exception Declaration` above. 
@@ -161,13 +169,19 @@ EXPECTED RESULT:
 
 1. The bot returns the following message in the channel: "Your Piazza email: *email entered*". 
 
+![](images/optin.png)
+
 2. Check for private messages from the bot. You should see some messages like this: "The point you earned today is : 0. Please keep it up!"
+
+![](images/dailysummary.png)
 
 STEP 3: Go to our Piazza course (https://piazza.com/class/l0k527orea42id) and post a public question with your name shown. Post an answer and a follow up to the question. 
 
 EXPECTED RESULT: 
 
 1. The bot sends you a few messages like this: "The point you earned today is : 8. Please keep it up!"
+
+![](images/dailysummary2.png)
 
 2. Verify the #cron channel in Discord. You should see a few "Top 3 Daily Points..." messages with your email and positive number of points. Check that the number of points in the message matches the number of points in your private message from the bot.
 
@@ -223,6 +237,8 @@ EXPECTED RESULT:
 
 2. Wait for a minute and check that you are not assigned any role. (The increment "1000" defines the number of points you must earn to reach a new level. For example, after enter the above slash command, "Level 1" is now set to 1000 - 1999 points, "Level 2" is set to 2000-2999 points, and "Level 3" is set to 3000+. Obviously, no user has been reached to 1000 and more, so there is no roles assigned to any users.)
 
+![](images/norole.png)
+
 STEP 3: In the #general channel in the Discord server, type "/". From the list of Discord commands, select the `/customize-roles` command with the description "Customize your three roles with incremental points". Enter "Level 1", "Level 2", "Level 3". For the "incremental" parameter, enter the number of points you have (see `piazza.csv` from the `/download-csv` command).
 
 EXPECTED RESULT: 
@@ -230,6 +246,8 @@ EXPECTED RESULT:
 1. The bot returns a message like the above, except with a different number of points next to "increment :".
 
 2. Check that the list of server users is updated so that you are assigned the "Level 1" role, which is the lowest role in the hierarchy. This may take a minute or so. (Note: If you have not posted anything on Piazza (i.e. enter 0 for the "incremental" parameter), you will not have an assigned level.)
+
+![](images/lowestrole.png)
 
 STEP 4: In the #general channel in the Discord server, type "/". From the list of Discord commands, select the `/customize-roles` command with the description "Customize your three roles with incremental points". Enter "Level 1", "Level 2", "Level 3", and "1" as the respective parameter values, then send the message.
 
@@ -240,6 +258,8 @@ EXPECTED RESULT:
 ![](images/level_roles_1.jpg)
 
 2. Check that the list of server users is updated so that you are assigned the "Level 3" role. This may take a minute or so. (This is dependent on whether you have already posted something on Piazza. Otherwise, you may have no points.)
+
+![](images/highestrole.png)
 
 **PASS/FAIL: PASS**
 

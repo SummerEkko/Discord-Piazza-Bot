@@ -198,6 +198,9 @@ STEP 1: In the #general channel, type "/". From the list of Discord commands, se
 EXPECTED RESULT:
 
 1. The bot returns the following message in the channel: "You have opted out of the performance notifications." 
+
+![](images/optout.png)
+
 2. Check that the bot no longer sends you private messages.
 
 **PASS/FAIL: PASS**

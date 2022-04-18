@@ -6,61 +6,61 @@
 | Deliverable    | Item/Status   |  Issues/Tasks
 | -------------- | ------------  |  ------------
 | **Use Case 1** | **Customize daily performance summary**                         | &nbsp;
-| Scenario       | Ability to define default/custom performance evaluation metric  |  #37
-| Scenario       | Ability to rank students based on instructor-defined metric     |  #38, #42
-| Scenario       | Ability to send information from Piazza to Discord              |  #32, #38
-| Unit Tests     | Incomplete    | [Restricted command](test/test.js#L54), [Custom weight matrix](test/test.js#L63)
+| Scenario       | Ability to define default/custom performance evaluation metric (Incomplete)  |  #37
+| Scenario       | Ability to rank students based on instructor-defined metric (Incomplete)     |  #38
+| Scenario       | Ability to send information from Piazza to Discord (Incomplete)              |  #32
+| Unit Tests     | Incomplete    | See [test.js](test/test.js)
 | **Use Case 2** | **Customize performance hierarchy ranking**                           | &nbsp;
-| Scenario       | Ability to assign level roles to students in Discord                  |  #33
-| Scenario       | Ability to set custom ranking hierarchy/points per level (instructor) |  #34
+| Scenario       | Ability to assign level roles to students in Discord (Incomplete)                 |  #33
+| Scenario       | Ability to set custom ranking hierarchy/points per level (instructor) (Incomplete) |  #34
 | Unit Tests     | Incomplete    | &nbsp;
-| **Use Case 3** | **Subscribe to incentive message**                                                     | &nbsp;
-| Scenario       | Ability to store and retrieve Piazza data in a database                                |  #39, #42
-| Scenario       | Ability to create and send incentive messages in Discord by student/default preference |  #40, 41
-| Unit Tests     | Incomplete    | [Bad login](test/test.js#L77), [Good login](test/test.js#L84), [Invalid class](test/test.js#L93), [Opt in](test/test.js#L104), [Opt out](test/test.js#L110)
+| **Use Case 3** | **Subscribe to incentive message**                                             | &nbsp;
+| Scenario       | Ability to store and retrieve Piazza data in a database (Incomplete)                       |  #39, #42
+| Scenario       | Ability to create and send incentive messages in Discord by student preference (Incomplete) |  #40, 41
+| Unit Tests     | Incomplete    | See [test.js](test/test.js)
 | **Use Case 4** | **Fetch performance summary file**                 | &nbsp;
-| Scenario       | Ability to retrieve data from database as CSV file |  #35, #42
-| Scenario       | Ability to send file to instructor in Discord      |  #36
-| Unit Tests     | Incomplete    | [Create report](test/test.js#L120)
+| Scenario       | Ability to retrieve data from database as CSV file (Complete) |  #35
+| Scenario       | Ability to send file to instructor in Discord (Incomplete)     |  #36
+| Unit Tests     | Incomplete    | See [test.js](test/test.js)
   
 ## Week 2
 
 | Deliverable    | Item/Status   |  Issues/Tasks
 | -------------- | ------------  |  ------------
 | **Use Case 1** | **Customize daily performance summary**                         | &nbsp;
-| Scenario       | Restricted command should only be used by instructor in server  |  #54
-| Unit Tests     | Complete    | [Restricted command](test/test.js#L54), [Custom weight matrix](test/test.js#L63)
+| Scenario       | Ability to define default/custom performance evaluation metric (Complete)  |  #37
+| Scenario       | Ability to rank students based on instructor-defined metric (Complete)    |  #38
+| Scenario       | Ability to send information from Piazza to Discord (Complete)              |  #32
+| Scenario       | Restricted command should only be used by instructor in server (Complete)  |  #54
+| Unit Tests     | Complete    | See [test.js](test/test.js)
 | **Use Case 2** | **Customize performance hierarchy ranking**                           | &nbsp;
-| Scenario       | Ability to set custom ranking hierarchy/points per level (instructor) |  #34
-| Scenario       | Created slash command and point assignment scheme |  #48
+| Scenario       | Ability to assign level roles to students in Discord (Complete)                  |  #33
+| Scenario       | Ability to set custom ranking hierarchy/points per level (instructor) (Complete) |  #34
+| Scenario       | Define point assignment scheme from slash command (Complete)|  #48
 | Unit Tests     | Complete    | &nbsp;
-| **Use Case 3** | **Subscribe to incentive message**                                                     | &nbsp;
-| Scenario       | Student associates Piazza account to Discord ID                                |  #40
-| Scenario       | Student opt in/opt out for incentive message |  #41
-| Unit Tests     | Complete    | [Bad login](test/test.js#L77), [Good login](test/test.js#L84), [Invalid class](test/test.js#L93), [Opt in](test/test.js#L104), [Opt out](test/test.js#L110)
+| **Use Case 3** | **Subscribe to incentive message**                                             | &nbsp;
+| Scenario       | Ability to store and retrieve Piazza data in a database (Complete)                      |  #39, #42
+| Scenario       | Ability to create and send incentive messages in Discord by student preference (Complete) |  #40, 41
+| Unit Tests     | Complete    | See [test.js](test/test.js)
 | **Use Case 4** | **Fetch performance summary file**                 | &nbsp;
-| Scenario       | Connect bot to database and retrieve correct data in .csv format to be sent to the instructor via Discord |  #35
-| Scenario       | Send data file to instructor once in a private Discord channel after data is retrieved after instructor issues /download command      |  #36
-| Unit Tests     | Complete    | [Create report](test/test.js#L120)
+| Scenario       | Connect bot to database and retrieve correct data in .csv format to be sent to the instructor via Discord (Complete) |  #35
+| Scenario       | Send data file to instructor once in a private Discord channel after data is retrieved after instructor issues /download command (Complete)      |  #36
+| Unit Tests     | Complete    | See [test.js](test/test.js)
 | **Database Work** | **Scrape data from Piazza**                 | &nbsp;
-| Scenario       | Use data collection functions to update collections in MongoDB database |  #50  
-| Scenario       | Use data collection functions to update collections in MongoDB database |  #52  
-| Scenario       | Change student data collection to exclude endorsements from original poster |  #52 
+| Scenario       | Use data collection functions to update collections in MongoDB database |  #50, #51, #52, #53
+| **Refactor & Integration Work** | **Code Refactor & System Integration**          | #49
   
 ## Week 3
 
 | Deliverable    | Item/Status   |  Issues/Tasks
 | -------------- | ------------  |  ------------
-| **Deployment** | **Fully provision and configure a remote environment for our bot**                         | &nbsp;
-| Deploy       | Provision and configure a remote environment to run bot  |  #65
-| Document     | Document how these configuration management tools and deployment scripts should be run and make sure to include demonstrate running them in our screencast.    | #69  
-| Screencast       | Record a screencast for Deploy.md file  |  #69
-| **Acceptance Testing** | **Provide instruction on how to test**                           | &nbsp;
-| Document       | The acceptance tests provide concrete instructions on what to actions to perform and verify at each step.  |  #66
-| Config       | Provide the tokens in the DEPLOY.md file |  #69 #70
-| **Testing** | **Subscribe to incentive message**                                                     | &nbsp;
-| Usability Testing       | Use the bot to finish some operations, to check whether there are any bugs.                                |  #77
-| Fix Bugs       | Fix the bugs      |  #77
+| **Deployment** | **Fully provision and configure a remote environment for bot**                         | &nbsp;
+| Deploying bot  | Write script to configure remove environment and run the bot, write documentation on performing deployment (Complete)  |  #65
+| Demo  | Demonstrate running configuration management tools and deployment scripts in a screencast (Complete)    | #69  
+| **Acceptance Testing** | **Provide instruction on how to test use cases**                           | &nbsp;
+| Documentation  | Document how to test use cases for valid and invalid input (Complete) |  #66, #70
+| Configuration  | Provide tokens and credentials in Google form (Complete) |  #66
+| Usability Testing       | Test bot for extreme inputs/outputs and fix bugs accordingly (Complete)          |  #74, #77
 
 
 

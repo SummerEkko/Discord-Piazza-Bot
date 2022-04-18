@@ -1,5 +1,5 @@
 # Acceptance Tests
-
+---
 ## Exception Declaration
 Note: Points and places of emails may vary depending on if you engage with posts in Piazza outside of the instructions provided, or if another user is interacting with the forum at the same time. If you complete the use cases out of the order we have provided (1 -> 4 -> 3 (Part 1) -> 2 -> 3 (Part 2)), you may also see differences in points.
 
@@ -21,13 +21,13 @@ let scheduledMessage = new cron.CronJob(
    'America/New_York'
 );
 ```
-
+---
 ## Prerequisite
 
-1. Join our test Piazza course (https://piazza.com/class/l0k527orea42id. see email invitation sent on April, 17th, course name is also CSC 510). Please contact us if you cannot find the Piazza invitation.
+1. Join our test Piazza course (https://piazza.com/class/l0k527orea42id). see email invitation sent on April, 17th, course name is also CSC 510). Please contact us if you cannot find the Piazza invitation.
 2. Download Discord (https://discord.com/download) and join our Discord server (https://discord.gg/ndujxUH7Yu).
 
-
+---
 ## Use Case 1 - Customize daily performance summary sent in the group-sharing Discord channel
 
 ### 1. UAT SCOPE
@@ -51,9 +51,9 @@ STEP 2: There are three parameters: "email", "password", and "network-id". Enter
 
 EXPECTED RESULT: The bot replies with a private message in the channel: "Login success".
 
-PASS/FAIL: PASS
+**PASS/FAIL: PASS**
 
-COMMENT: Association is verified. Further verification can be derived from 2.2 and 2.3. 
+**RESULT COMMENT: Association is verified. Further verification can be derived from 2.2 and 2.3.** 
 
 ### 2.2 Daily Performance Summary Sent in Group-Sharing Channel
 STEP 1: Click on the #cron channel and verify daily summary messages.
@@ -76,9 +76,9 @@ EXPECTED RESULT:
 
 The number of points next to your email should be at least 3 (1 question * 1 point and 2 answers/followups * 1 point = 3 points), but may be more depending on the number of views on your post and if there is interaction with/from other Piazza users. You may need to refresh the post to see the views. It is also helpful to point out that performance score parameters are set to "Questions" = 1,"Answers" = 1,"Views" = 1,"Endorsements" = 1. More details on performance score parameters will be discussed in the next section.
 
-PASS/FAIL: PASS
+**PASS/FAIL: PASS**
 
-COMMENT: By comparison between two #cron messages above, successful daily summary update and message delivery can be verified.
+**RESULT COMMENT: By comparison between two #cron messages above, successful daily summary update and message delivery can be verified.**
 
 
 ### 2.3 Set performance score parameters
@@ -99,9 +99,9 @@ EXPECTED RESULT:
 
 The number of points next to your email should be at least 8 points (1 question * 2 points and 2 answers/followups * 3 points = 8 points), but may be more depending on the number of views on your post and if there is interaction with/from other Piazza users. You may need to refresh the post to see the views.
 
-PASS/FAIL: PASS
+**PASS/FAIL: PASS**
 
-COMMENT: By comparison between two #cron messages above, expected points associated with the user are correctly calculated based on performance score matrix.
+**RESULT COMMENT: By comparison between two #cron messages above, expected points associated with the user are correctly calculated based on performance score matrix.**
 
 ### 3. EDGE CASE IDENTIFICATION
 
@@ -132,9 +132,9 @@ Points = Questions * p1 + Answers * p2 + Views * p3 + Endorsements * p4
 
 Note: Whenever you set the point parameters with the `/set` command, you will need to wait a little for the total points to be synchronized when you use the `/download-csv` command. This won't become an issue if the Cron schedule to set to daily delivery as described in `Exception Declaration` above. 
 
-PASS/FAIL: PASS
+**PASS/FAIL: PASS**
 
-COMMENT: Overall performance summary file is correctly generated and available for user download.
+**RESULT COMMENT: Overall performance summary file is correctly generated and available for user download.**
 
 ### 3. EDGE CASE IDENTIFICATION
 N/A.
@@ -142,7 +142,7 @@ N/A.
 ### 4. USE CASE 4 - UAT RESULT
 - [X] PASS
 
-
+---
 ## Use Case 3: Subscribe to receive incentive message (up-to-date points earned message) in the private Discord channel
 
 ### 1. UAT SCOPE
@@ -173,9 +173,9 @@ EXPECTED RESULT:
 
 3. After a minute or so, the points in the private messages and "Top 3 Daily Points..." messages should revert back to 0 because one day systematically passed with our Cron scheduler.
 
-PASS/FAIL: PASS
+**PASS/FAIL: PASS**
 
-COMMENT: Up-to-date points for associated student is correctly generated and sent in the BOT private message.
+**RESULT COMMENT: Up-to-date points for associated student is correctly generated and sent in the BOT private message.**
 
 ### 2.2 Unsubscribe to Incentive Message
 
@@ -186,9 +186,9 @@ EXPECTED RESULT:
 1. The bot returns the following message in the channel: "You have opted out of the performance notifications." 
 2. Check that the bot no longer sends you private messages.
 
-PASS/FAIL: PASS
+**PASS/FAIL: PASS**
 
-COMMENT: BOT does not send private messages after un-subscription.
+**RESULT COMMENT: BOT does not send private messages after un-subscription.**
 
 ### 3. EDGE CASE IDENTIFICATION
 In the #general channel, send the `/opt-in` command again with "abc" next to the "email" parameter to represent at invalid email. Check that the bot returns the following message in the channel: "Your Piazza email: abc". Check that the bot is not sending you private messages. Try this again without entering anything for an email and with a valid email not associated with your Piazza account. Check that the bot returns a message in the channel: "Your Piazza email: *your input*" but does not send you private messages.
@@ -196,6 +196,7 @@ In the #general channel, send the `/opt-in` command again with "abc" next to the
 ### 4. USE CASE 3 - UAT RESULT
 - [X] PASS
 
+---
 ## Use Case 2 - Customize ranking hierarchy to students based on overall performance
 
 ## Prerequisite for Use Case 2 Only
@@ -240,12 +241,12 @@ EXPECTED RESULT:
 
 2. Check that the list of server users is updated so that you are assigned the "Level 3" role. This may take a minute or so. (This is dependent on whether you have already posted something on Piazza. Otherwise, you may have no points.)
 
-PASS/FAIL: PASS
+**PASS/FAIL: PASS**
 
-COMMENT: Instructor can customize ranking hierarchy and users are assigned roles correctly base on customization.
+**RESULT COMMENT: Instructor can customize ranking hierarchy and users are assigned roles correctly base on customization.**
 
 ### 3. EDGE CASE IDENTIFICATION
 N/A.
 
-### 4. USE CASE 3 - UAT RESULT
+### 4. USE CASE 2 - UAT RESULT
 - [X] PASS

@@ -50,6 +50,19 @@
 | Scenario       | Use data collection functions to update collections in MongoDB database |  #50, #51, #52, #53
 | **Refactor & Integration Work** | **Code Refactor & System Integration**          | #49
 
+## Week 3
+
+| Deliverable    | Item/Status   |  Issues/Tasks
+| -------------- | ------------  |  ------------
+| **Deployment** | **Fully provision and configure a remote environment for bot**                         | &nbsp;
+| Deploying bot  | Write script to configure remove environment and run the bot, write documentation on performing deployment (Complete)  |  #65
+| Demo  | Demonstrate running configuration management tools and deployment scripts in a screencast (Complete)    | #69  
+| **Acceptance Testing** | **Provide instruction on how to test use cases**                           | &nbsp;
+| Documentation  | Document how to test use cases for valid and invalid input (Complete) |  #66, #70
+| Configuration  | Provide tokens and credentials in Google form (Complete) |  #66
+| Usability Testing       | Test bot for extreme inputs/outputs and fix bugs accordingly (Complete)          |  #74, #77
+
+
 
 
 

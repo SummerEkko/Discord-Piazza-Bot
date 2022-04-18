@@ -1,7 +1,7 @@
 # Acceptance Tests
 ---
 ## Exception Declaration
-Note: Points and places of emails may vary depending on if you engage with posts in Piazza outside of the instructions provided, or if another user is interacting with the forum at the same time. If you complete the use cases out of the order we have provided (1 -> 4 -> 3 (Part 1) -> 2 -> 3 (Part 2)), you may also see differences in points.
+Note: Points and places of emails may vary depending on if you engage with posts in Piazza outside of the instructions provided, or if another user is interacting with the forum at the same time. If you complete the use cases out of the order we have provided (1 -> 4 -> 3 (Subscribe to receive incentive message) -> 2 -> 3 (Unsubscribe to receive incentive message)), you may also see differences in points.
 
 Points are calculated based on parameters for each type of participation activity in Piazza. They are all set to 1 by default. We classify activity into 4 categories: Questions, Answers/Followups, Views, and Endorsements. Questions include notes. Answers/followups include student answers and follow up comments. For endorsements, liking your own posted content (questions, answers, followups) does not count. Private or anonymous posts are not counted in activity. Ideally, performance summary and private bot messages should only be sent once a day, but to show our use case works, they are sent every 10 seconds.
 

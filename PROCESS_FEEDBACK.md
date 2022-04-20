@@ -8,7 +8,7 @@ Thank you for your team project submission.                  Please see below fo
 | **PROCESS** | 15.0/25 | Suggestions to improve your process:<br/>*  PRs are mostly not assigned to reviewers and merged/closed by authors themselves.<br/>*  mostly no PRs have comments. <br/>*  no issues are linked to PRs<br/> |
 | **PRACTICES** | 23.9/25 | Suggestions to improve your practices:<br>*  Core practices and Corollary Practices identified andexplained only. No documentation/proof.<br/> |
 | **CONSISTENCY** | 25.0/25 | Well done. Your team has sufficient consistency. |
-| **DEMO / SIGNOFF to TAs** | 15.0/25 |  |
+| **DEMO / SIGNOFF to TAs** | 25.0/25 |  |
 | --- | --- | --- |
 | **Total** | 78.93/100 |  |
 

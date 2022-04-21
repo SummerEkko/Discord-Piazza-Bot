@@ -14,4 +14,4 @@ See [ACCEPTANCE.md](ACCEPTANCE.md) for our acceptance tests.
 
 Our bot does not run on any hardcoded/mocking data. We only use mocking data for unit testing, since it is impossible to perform unit tests otherwise.
 
-See our iteration worksheet at [WORKSHEET.md](WORKSHEET.md) and our meeting notes here.
+See our iteration worksheet at [WORKSHEET.md](WORKSHEET.md) and our meeting notes [here](https://docs.google.com/document/d/1VgVPGERCl8Ig4kG48JwFcjqe_AqHXk9osnC4lFbZeR0/edit?usp=sharing).

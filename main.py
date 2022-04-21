@@ -38,7 +38,7 @@ def update(totalData, dailyData, username, password, networkID, p1, p2, p3, p4):
     Overwrite daily and total data database with latest data.
     If initialize is true, only overwrite total data.
     """
-    allData = ps.pull_data(username, password, networkID, p1, p2, p3, p4)
+    allData = ps.pull_data(username, password, networkID)
 
     lastDay = copy.deepcopy(allData)
     for student in lastDay:
@@ -47,13 +47,16 @@ def update(totalData, dailyData, username, password, networkID, p1, p2, p3, p4):
             for key in student.keys():
                 if key != 'Email':
                     student[key] -= obs[key]
+    for item in lastDay:
+        item['Points'] = item['Questions']*p1 + item['Answers']*p2 + item['Views']*p3 + item['Endorsements']*p4
+    for item in allData:
+        item['Points'] = item['Questions']*p1 + item['Answers']*p2 + item['Views']*p3 + item['Endorsements']*p4
 
     dailyData.delete_many({})
     dailyData.insert_many(lastDay)
 
     totalData.delete_many({})
     totalData.insert_many(allData)
-
 
 def scheduleJobs():
     """

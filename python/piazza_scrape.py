@@ -69,7 +69,7 @@ def get_post_data(course):
 
     return post_df
 
-def get_student_data(post_df, p1, p2, p3, p4):
+def get_student_data(post_df):
     """ 
     Returns list with each list element as a summary for one student:
         [student Piazza id, questions, answers/followups, views, endorsements, points]
@@ -84,8 +84,7 @@ def get_student_data(post_df, p1, p2, p3, p4):
         ans = stud_df.drop(quest.index)
         q = quest.shape[0]
         a = ans.shape[0]
-        pts = p1*q + p2*a + p3*views + p4*likes
-        student_data.append({'Email': stud, 'Questions': q, 'Answers': a, 'Views': views, 'Endorsements': likes, 'Points': pts})
+        student_data.append({'Email': stud, 'Questions': q, 'Answers': a, 'Views': views, 'Endorsements': likes})
     return student_data
 
 def pull_post_data(username, password, network_id):
@@ -103,10 +102,10 @@ def pull_post_data(username, password, network_id):
     post_df = get_post_data(course)
     return post_df
 
-def pull_data(username, password, network_id, p1, p2, p3, p4):
+def pull_data(username, password, network_id):
     """
     Return student statistics for all Piazza activity.
     """
     post_df = pull_post_data(username, password, network_id)
-    student_data = get_student_data(post_df, p1, p2, p3, p4)
+    student_data = get_student_data(post_df)
     return student_data

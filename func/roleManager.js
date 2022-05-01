@@ -18,7 +18,7 @@ async function update(guild, mongoose) {
                 member.roles.set([]).then(() => {
                     console.log(`${member.displayName}'s role has been removed`);
                 });
-            });
+            }).catch(console.error);
             continue;
         }
         await changeRoleTo(guild, discordId, roleName);
@@ -65,7 +65,7 @@ function changeRoleTo(guild, userId, roleName) {
         member.roles.set([role]).then(() => {
             console.log(`${member.displayName} has been given the role ${role.name}`);
         });
-    });
+    }).catch(console.error);
 }
 
 exports.update = update;
